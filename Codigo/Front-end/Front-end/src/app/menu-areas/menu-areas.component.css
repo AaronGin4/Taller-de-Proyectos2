@@ -1,0 +1,292 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px 20px 0px 20px;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: #0bac99;
+  margin-bottom: 20px;
+  
+}
+
+.usuario {
+  width: 80%;
+}
+
+h2 {
+  color: rgba(14, 30, 212, 0.833);
+}
+
+.boton {
+  width: 20%;
+  background-image: url('../../assets/agregar-usuario.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+nav {
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.menu {
+  display: flex;
+  width: 50%;
+  order: 1;
+  flex-grow: 5;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+button {
+  height: 100px;
+  border: none; 
+  padding: 14px 28px; 
+  cursor: pointer; 
+  border-radius: 20px; 
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.btn {
+  background:  #0ca789; 
+  color: white;
+}
+.btn:hover {
+  background-color: #4adec1; 
+  border: 3px solid #0ca789;
+  color: black;
+} 
+
+.logo {
+  background-image: url('../../assets/fonfoclaro.png');
+  background-size: cover;
+  width: 40%;
+  height: 60%;
+  order: 2;
+  flex-grow: 5;
+}
+
+footer {
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  padding: 25px 0px;
+}
+
+
+.btnre {
+  width: 150px;
+  height: 50px;
+  border: none; 
+  padding: 10px 10px; 
+  cursor: pointer; 
+  border-radius: 10px; 
+  font-weight: bold;
+  font-size: large;
+}
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+
+
+/* Estilos responsivos para tablets 
+@media (max-width: 823px) {
+  header {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .menu {
+    width: 80%;
+    gap: 15px;
+  }
+
+  .btn {
+    height: 80px;
+    font-size: 1.2em;
+  }
+
+  .logo {
+    width: 60%;
+    height: 50%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+}*/
+
+/* Estilos responsivos para móviles */
+@media (max-width: 480px) {
+  header {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  body {
+    margin: 2%;
+  }
+  nav {
+    height: 400px;
+  }
+
+  .menu {
+    width: 60%;
+    gap: 10px;
+  }
+
+  .btn {
+    height: 60px;
+    font-size: 1em;
+  }
+
+  .logo {
+    width: 40%;
+    height: 60%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  footer {
+    clear: both;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    padding: 40px 0px;
+  }
+}
+
+/* Estilos responsivos para laptops */
+@media (min-width: 1024px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 50px 40px 0px 40px;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    color: #0ca789;
+    margin-bottom: 20px;
+  }
+  
+  .usuario {
+    width: 80%;
+  }
+  
+  h2 {
+    color: black;
+  }
+  
+  .boton {
+    width: 20%;
+    background-image: url('../../assets/agregar-usuario.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  nav {
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .menu {
+    display: flex;
+    width: 50%;
+    order: 1;
+    flex-grow: 5;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+  }
+  
+  .btn {
+    height: 100px;
+    background: #0ca789;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 300ms ease all;
+  }
+  
+  .btn:hover {
+    background: #fff;
+    color: #0ca789;
+    border: 3px solid #0ca789;
+  }
+  
+  .logo {
+    background-image: url('../../assets/fonfoclaro.png');
+    background-size: cover;
+    width: 40%;
+    height: 60%;
+    order: 2;
+    flex-grow: 5;
+  }
+  
+  footer {
+    clear: both;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    padding: 40px 0px;
+  }
+  
+  .btnre {
+    background: #f24726;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 300ms ease all;
+    border: none;
+    height: 70px;
+    width: 300px;
+  }
+  
+}
