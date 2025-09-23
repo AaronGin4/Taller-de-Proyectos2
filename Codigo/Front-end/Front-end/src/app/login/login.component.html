@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+</head>
+<body>
+  <div class="overlay"></div>
+  <header>
+    <h1>INICIO DE SESIÓN</h1>
+    <br>
+    <h2>Ingrese sus datos</h2>
+    <div class="logoapp"></div>
+  </header>
+  
+  <div class="login-container">
+    <input type="text"
+       inputmode="numeric"
+       pattern="\d*"
+       maxlength="8"
+       class="input-field"
+       placeholder="Usuario (DNI)"
+       [(ngModel)]="usuario"
+       name="usuario"
+       oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,8)">
+
+    <input
+      [type]="mostrarContrasena ? 'text' : 'password'"
+      class="input-field"
+      placeholder="Contraseña"
+      [(ngModel)]="contrasena"
+      name="contrasena"
+      id="passwordInput">
+
+    <label class="checkbox-label">
+      <input type="checkbox" [(ngModel)]="mostrarContrasena" name="mostrarContrasena"> Mostrar contraseña
+    </label>
+
+    <button class="login-button" (click)="login()">Ingresar</button>
+  </div>
+
+  <br><br>
+
+  <div class="patrocinadores">
+    <div class="texto">
+      <h3>COLABORADORES:</h3>
+    </div>
+    <div class="patrocinador1"></div>
+    <div class="patrocinador2"></div>
+    <div class="patrocinador3"></div>
+    <div class="patrocinador4"></div>
+    <div class="texto">
+      <p><strong><em><small>Derechos reservados - Autor: Estudiantes de la universidad continental</small></em></strong></p>
+    </div>
+  </div>
+</body>
+</html>

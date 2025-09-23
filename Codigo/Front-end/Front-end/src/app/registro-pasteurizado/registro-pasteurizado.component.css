@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url('../../assets/fondo.png') ;
+  background-size: 80%; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0px 20px 0px 20px;
+  display: block;
+  text-align: center;
+  align-items: center;
+}
+
+header{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #0bac99;
+}
+section {
+  margin-top: 20px;
+  font-weight: bold;
+  display: block;
+}
+form{
+  margin-top: 100px;
+}
+label {
+  margin-top: 40px;
+  display: inline-block;
+  width: 400px; /* Ancho fijo para alineación */
+  text-align: left;
+  vertical-align: middle;
+  font-size: 25px;
+  
+}
+input[type="checkbox"]:not(old) + label {
+  cursor: pointer;
+}
+input, select {
+  margin-top: 40px;
+  width: 340px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: solid 2px #0ca789;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+
+footer{
+  margin-top: 100px;
+  gap: 40%;
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    border: none; 
+    padding: 10px 10px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    font-weight: bold;
+    font-size: large;
+}
+
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+.btnreg {
+  background:  #040ab2; 
+  color: white;
+}
+.btnreg:hover {
+  background-color: #4163e8; 
+  border: 3px solid #040ab2;
+  color: black;
+}

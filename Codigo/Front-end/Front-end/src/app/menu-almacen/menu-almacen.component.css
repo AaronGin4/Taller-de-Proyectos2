@@ -1,0 +1,102 @@
+/* --- Reset y fondo --- */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url('../../assets/fondo.png');
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0 10px;
+  display: block;
+}
+
+/* --- Header --- */
+header {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #0bac99;
+}
+
+/* --- Navegación y menú --- */
+nav {
+  height: 700px;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- Botones principales --- */
+button {
+  width: 500px;
+  height: 100px;
+  border: none; 
+  padding: 14px 28px; 
+  cursor: pointer; 
+  border-radius: 20px; 
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.btn {
+  background:  #0ca789; 
+  color: white;
+}
+.btn:hover {
+  background-color: #4adec1; 
+  border: 3px solid #0ca789;
+  color: black;
+}  
+
+/* --- Footer --- */
+footer {
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+}
+
+/* --- Botones secundarios --- */
+.btnre{
+    width: 150px;
+    height: 50px;
+    border: none; 
+    padding: 10px 10px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    font-weight: bold;
+    font-size: large;
+}
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+
+/* --- Efectos decorativos en botones --- */
+button:before,
+button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  background: #1AAB8A;
+  transition: 400ms ease all;
+}

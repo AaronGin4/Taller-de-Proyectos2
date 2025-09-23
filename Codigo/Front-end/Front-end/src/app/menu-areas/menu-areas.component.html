@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+  
+	<header>
+    <div class="usuario">
+      <h1>Usuario:</h1>
+      <h2 >{{ nombreUsuario }}</h2>
+    </div>
+    <div class="boton" href="administrar-usuarios" (click)="agregarUsuario()" *ngIf="permisos.includes('usuarios')" >
+    </div>
+    <div class="titulo">
+      <h1>AREAS</h1>
+    </div>
+  </header>
+	<nav>
+		<ul class="menu">
+            <button class="btn" (click)="Historiaclinica()" *ngIf="permisos.includes('historia')">
+                FILIACIÓN DE PACIENTE
+            </button>
+
+            <button class="btn" (click)="Pasedevisita()" *ngIf="permisos.includes('pacientes')">
+                PASE DE VISITA
+            </button>
+            <button class="btn" (click)="Almacen()" *ngIf="permisos.includes('almacen')">
+                ALMACEN
+            </button>
+            <button class="btn" (click)="DatosExtra()" *ngIf="permisos.includes('reportes')">
+                ESTADISTICA DIARIA
+            </button>
+            <button class="btn" (click)="Donanteesterno()" *ngIf="permisos.includes('donantes')">
+              PROCURA DONANTE EXTERNO
+          </button>
+          <button class="btn" (click)="Reporte()" *ngIf="permisos.includes('reportes')">
+              REPORTES
+          </button>
+		</ul>
+    <div class="logo">
+    </div>
+
+	</nav>
+  <footer>
+    <button class="btnre" (click)="cerrarSesion()" >
+      Cerrar Sesión
+    </button>
+  </footer>
+</body>
+</html>

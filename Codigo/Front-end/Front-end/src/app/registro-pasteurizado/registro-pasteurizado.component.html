@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Registro de leche pasteurizada</h1>
+    </header>
+    <section>
+        
+        <form>
+            <label>Seleccione el tipo de leche:</label>
+            <select [(ngModel)]="leche.tipoLeche" name="tipoLeche">
+                <option value="">Seleccion el tipo de leche</option>
+                <option value="Calostro">Calostro</option>
+                <option value="Transición">Transición</option>
+                <option value="Madura">Madura</option>
+            </select>
+            <br>
+            <label for="codigoleche">Codigo de leche:</label>
+            <input type="text" class="input-field" placeholder="Ingrese codigo de leche" [(ngModel)]="leche.codigoLeche" name="codigoLeche" required>
+            <br>
+            <label for="cantidadleche">Cantidad de leche:</label>
+            <input type="number" class="input-field" placeholder="Ingrese Cantidad(ml)" [(ngModel)]="leche.cantidadLeche" name="cantidadLeche" required>
+
+            <br>
+            <label for="kilocaloria">Ingrese la kilcaloria:</label>
+            <input type="number" class="input-field" placeholder="Ingrese kilocaloria(Kcal)" [(ngModel)]="leche.kcal" name="kcal" required>
+            <br>
+            <label for="crema">Ingrese el porcentaje de crema:</label>
+            <input type="number" class="input-field" placeholder="Ingrese porcentaje de crema(%C)" [(ngModel)]="leche.crema" name="crema" required>
+            <br>
+            <label for="grasa">Ingrese el porcentaje de grasa:</label>
+            <input type="number" class="input-field" placeholder="Ingrese porcentaje de grasa(%G)" [(ngModel)]="leche.grasa" name="grasa" required>
+            <br>
+            <label for="adornix">Ingrese el aDornix:</label>
+            <input type="number" class="input-field" placeholder="Ingrese adornix(aD)" [(ngModel)]="leche.aDornix" name="aDornix" required>
+            <br>
+        </form>
+    </section>
+    <aside>
+        
+    </aside>
+    <footer>
+        <button class="btnre" (click)="regresar()">Regresar</button>
+        <button class="btnreg" (click)="registrar()">Registrar</button>
+    </footer>
+    
+</body>
+</html>
