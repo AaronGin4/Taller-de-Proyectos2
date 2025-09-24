@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-//import { API_URL } from '../conexion';
+import { API_URL } from '../conexion';
 import Swal from 'sweetalert2';
 
 @Component({
