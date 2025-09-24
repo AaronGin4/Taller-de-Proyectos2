@@ -74,16 +74,17 @@ button {
   border: 3px solid #0ca789;
   color: black;
 } 
-
+.emot{
+  background-color: #E64A19;
+}
 .logo {
   background-image: url('../../assets/fonfoclaro.png');
   background-size: cover;
   width: 40%;
   height: 60%;
   order: 2;
-  flex-grow: 5;
+  flex-grow: 5%
 }
-
 footer {
   clear: both;
   display: flex;

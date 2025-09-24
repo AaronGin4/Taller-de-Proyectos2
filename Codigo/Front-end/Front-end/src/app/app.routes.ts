@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard'; 
-import { AlmacenGuard } from './almacen.guard';
 
 export const routes: Routes = [
    {
@@ -23,7 +22,7 @@ export const routes: Routes = [
     {
       path: 'menu-almacen',
       loadComponent: () => import('./menu-almacen/menu-almacen.component').then(m => m.MenuAlmacenComponent),
-      canActivate: [AlmacenGuard]
+      canActivate: []
     },
     
     {
