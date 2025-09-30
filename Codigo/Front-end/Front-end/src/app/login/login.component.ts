@@ -54,7 +54,7 @@ export class LoginComponent {
           title: "¡Bienvenido!",
           text: "Has iniciado sesión correctamente",
           icon: "success",
-          timer: 1000, // Cierra automáticamente después de 2 segundos
+          timer: 1000,
           showConfirmButton: false
         }).then(() => {
           this.router.navigate(['/menu-areas']);
