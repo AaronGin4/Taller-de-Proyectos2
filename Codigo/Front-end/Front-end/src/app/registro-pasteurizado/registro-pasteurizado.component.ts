@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-//import { RegistroLechePasteurizadaService } from '../services/registro-leche-pasteurizada.service';
+import { RegistroLechePasteurizadaService } from '../services/registro-leche-pasteurizada.service';
 import Swal from 'sweetalert2';
 import { HttpErrorResponse } from '@angular/common/http'; // Importación añadida
 
