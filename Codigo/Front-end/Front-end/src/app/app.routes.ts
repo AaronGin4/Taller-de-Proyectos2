@@ -42,11 +42,16 @@ export const routes: Routes = [
       loadComponent: () => import('./crear-usuario/crear-usuario.component').then(m => m.CrearUsuarioComponent)
         ,canActivate: [UsuariosGuard]  
     },
-    
+
     {
       path: 'administrar-usuarios',
       loadComponent: () => import('./administrar-usuarios/administrar-usuarios.component').then(m => m.AdministrarUsuariosComponent),
       canActivate: [UsuariosGuard]
+    },
+    {
+      path: 'leches-disponibles',
+      loadComponent: () => import('./leches-disponibles/leches-disponibles.component').then(m => m.LechesDisponiblesComponent),
+      canActivate: [AlmacenGuard]
     },
 
   {
