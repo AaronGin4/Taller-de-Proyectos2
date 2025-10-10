@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h2>LECHES DISPONIBLES</h2>
+  </header>
+  <div>
+    <div class="contenedor">
+      <div class="tablas-container">
+        <div *ngFor="let leche of leches" class="tipo-leche-container">
+          <h2 class="tipo-leche-titulo">{{ leche.tipo }}</h2>
+
+          <!-- MENSAJE SI NO HAY LECHES EN NINGÚN TIPO CALÓRICO -->
+          <div *ngIf="esLecheVacia(leche)"
+              style="padding: 20px; text-align: center; font-style: italic; color: #000000;font-weight: bold;">
+            No hay leches {{ leche.tipo.toLowerCase() }} disponibles.
+          </div>
+
+          <!-- RENDERIZAR TIPOS CALÓRICOS SOLO SI HAY ALGUNA LECHE -->
+          <div class="leches-container" *ngIf="!esLecheVacia(leche)">
+            <div *ngFor="let tipoCalorico of leche.tiposCaloricos" class="leche-tipo">
+              <h3 class="tipo-calorico-titulo">{{ tipoCalorico.calorico }}</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>CODIGO</th>
+                    <th>CANTIDAD ml</th>
+                    <th>KCAL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- MENSAJE SI ESTE TIPO CALÓRICO NO TIENE LECHES -->
+                  <tr *ngIf="tipoCalorico.leches.length === 0">
+                    <td colspan="3" style="text-align: center; font-style: italic; color: #000000;font-weight: bold;">
+                      No hay leches {{ tipoCalorico.calorico.toLowerCase() }} disponibles.
+                    </td>
+                  </tr>
+
+                  <!-- RENDERIZAR LECHES DE ESTE TIPO CALÓRICO -->
+                  <tr *ngFor="let item of tipoCalorico.leches" (click)="mostrarDetalleLeche(item)" class="fila-leche">
+                    <td>{{ item.codigoLeche }}</td>
+                    <td>{{ item.cantidadLeche }}</td>
+                    <td>{{ item.kcal }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <button (click)="regresar()" class="btnre">Regresar</button>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="lecheSeleccionada">
+    <div class="modal-contenido">
+      <h2 style="text-align: center;">Detalles de la Leche</h2>
+      
+      <div class="modal-fila">
+        <strong>Código:</strong> <span>{{ lecheSeleccionada.codigoLeche }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>Tipo:</strong> <span>{{ lecheSeleccionada.tipoLeche }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>Contenido Energético:</strong> <span>{{ lecheSeleccionada.contenidoEnergetico }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>Cantidad (ml):</strong> <span>{{ lecheSeleccionada.cantidadLeche }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>Kcal:</strong> <span>{{ lecheSeleccionada.kcal }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>Crema (%):</strong> <span>{{ lecheSeleccionada.crema }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>Grasa(%):</strong> <span>{{ lecheSeleccionada.grasa }}</span>
+      </div>
+      <div class="modal-fila">
+        <strong>aDornix:</strong> <span>{{ lecheSeleccionada.aDornix }}</span>
+      </div>
+
+      <div class="modal-botones">
+        <button class="btnCerrar" (click)="cerrarModal()">Cerrar</button>
+        <button class="btnRetirar" (click)="eliminarLeche(lecheSeleccionada)">Retirar</button>
+        
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

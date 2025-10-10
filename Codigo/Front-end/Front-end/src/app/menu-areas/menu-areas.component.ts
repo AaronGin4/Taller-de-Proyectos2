@@ -16,7 +16,7 @@ export class MenuAreasComponent {
   nombreUsuario: string = '';
 
   ngOnInit(): void {
-    //console.log(localStorage.getItem('permisos'));
+    console.log(localStorage.getItem('permisos'));
     const usuario = localStorage.getItem("usuario");
     if (usuario) {
       const datos = JSON.parse(usuario);

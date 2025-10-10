@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Crear nuevo usuario</h1>
+    </header>
+    <section>
+        <article class="fornulario">
+            <form>
+                <label for="profesion">PROFESION:</label>
+                <input type="text" id="profesion" [(ngModel)]="usuario.profesion" name="profesion"  placeholder="Ingrese su profesion" />
+                <br>
+                <label for="nombres">NOMBRES:</label>
+                <input type="text" id="nombres" [(ngModel)]="usuario.nombres" name="nombres" placeholder="Ingrese su nombre" />
+                <br>
+                <label for="apellidos">APELLIDOS:</label>
+                <input type="text" id="apellidos" [(ngModel)]="usuario.apellidos" name="apellidos" placeholder="Ingrese su apellido" />
+                <br>
+                <label for="usuario">USUARIO:</label>
+                <input type="text" 
+                id="usuario" 
+                [(ngModel)]="usuario.usuario" 
+                name="usuario" 
+                placeholder="Ingrese su DNI"
+                maxlength="8"
+                pattern="^\d{8}$"
+                inputmode="numeric"
+                oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,8)"
+                required />
+                <br>
+                <label for="contrasena">CONTRASEÑA:</label>
+                <input type="password" id="contrasena" [(ngModel)]="usuario.contrasena" name="contrasena" placeholder="Ingrese su contraseña" />
+                <br>
+                <label for="confirmarContrasena">CONFIRMAR CONTRASEÑA:</label>
+                <input type="password" id="confirmarContrasena" [(ngModel)]="usuario.confirmarContrasena" name="confirmarContrasena" placeholder="Confirme su contraseña" />
+                
+            </form>
+        </article>
+        <article class="check">
+            <br>
+            <h2>ACCESO A:</h2>
+                <ol>
+                    <input  type="checkbox" id="historia" [(ngModel)]="usuario.accesoHC" name="accesoHC"><label for="historia">HISTORIA CLINICA</label>
+                    <input  type="checkbox" id="pase" [(ngModel)]="usuario.accesoPV" name="accesoPV"><label for="pase">PASE DE VISITA</label>
+                    <input  type="checkbox" id="almacen" [(ngModel)]="usuario.accesoAlmacen" name="accesoAlmacen"><label for="almacen">ALMACEN</label>
+                    <input  type="checkbox" id="reporte" [(ngModel)]="usuario.accesoReportes" name="accesoReportes"><label for="reporte">REPORTES Y ESTADISTICA DIARIA</label>
+                    <input  type="checkbox" id="donate" [(ngModel)]="usuario.accesoDonantes" name="accesoDonantes"><label for="donate">DONANTE EXTERNO</label>    
+                </ol>
+        </article>
+        <article class="confir">
+            <br>
+            <h2><strong>¿El usuario será administrador?</strong></h2>
+            <br>
+            <ul>
+                <input type="radio" id="admin" name="administrador" [(ngModel)]="usuario.administrador" [value]="true" />
+                <label for="admin">Sí</label>
+                <input type="radio" id="noadmin" name="administrador" [(ngModel)]="usuario.administrador" [value]="false" />
+                <label for="noadmin">No</label>
+            </ul>
+        </article>
+        
+            
+        
+    </section>
+    <footer>
+        <button class="btnre" (click)="regresar()">Regresar</button>
+        <button class="btncrear" (click)="crearUsuario()">Crear Usuario</button>
+    </footer>
+</body>
+</html>

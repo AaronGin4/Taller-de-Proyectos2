@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrar Usuarios</title>
+  <link rel="stylesheet" href="administrar-usuarios.component.css">
+</head>
+<body>
+  <header>
+    <h1>Administrar usuario</h1>
+    <br>
+  </header>
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Nombre de usuario</th>
+          <th>Profesión</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.usuario }}</td>
+          <td>{{ usuario.nombres }} {{ usuario.apellidos }}</td>
+          <td>{{ usuario.profesion }}</td>
+          <td><button class="btneli" (click)="eliminarUsuario(usuario.idUsuario)">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <footer>
+    <button class="btnre" (click)="regresar()">Regresar</button>
+    <button class="btnnu" (click)="nuevoUsuario()">Nuevo</button>
+  </footer>
+</body>
+</html>
