@@ -4,9 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="490f693e-3b5a-4d34-9c51-ca0f49608725" name="Changes" comment="">
+    <list default="true" id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="todo unido">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PaseDeVisitaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/PaseDeVisita.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/repository/PaseDeVisitaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/PaseDeVisitaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Back-end.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/BancoDeLecheApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/CunaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/DiagnosticoPacienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/MadreController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PacienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/RegistroLecheCrudaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/RegistroLechePasteurizadaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/UsuariosController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Cuna.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/DiagnosticoPaciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Madre.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Paciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/RegistroLecheCruda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/RegistroLechePasteurizada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Usuarios.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/CunaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/DiagnosticoPacienteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/MadreRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/PacienteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/RegistroLecheCrudaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/RegistroLechePasteurizadaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/UsuariosRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/CunaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/DiagnosticoPacienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/MadreService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/PacienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/RegistroLecheCrudaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/RegistroLechePasteurizadaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/UsuariosService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-end/src/test/java/com/HospitalRegional/BancoDeLeche/BancoDeLecheApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TP2. E4 Sprint Backlog con tareas y estimaciones.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2. E4 Sprint Backlog con tareas y estimaciones.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,38 +65,125 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FZC-ARG&quot;
+  }
 }</component>
-  <component name="ProjectId" id="339y4hxe63GaWeKN4whxOCSQ7hO" />
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Rickf4ll/Back-final-final.git&quot;,
+    &quot;accountId&quot;: &quot;02c13d0c-4670-4c23-8363-1895175e98b4&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2wZ8IzAPNcR0qXJz42C6G0g0H98" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BancoDeLecheApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Ricardo/OneDrive/Documentos/Taller de Proyectos/Taller-de-Proyectos2/Codigo/Back-end"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BancoDeLecheApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BancoDeLeche [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BancoDeLeche.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ricardo/OneDrive/Documentos/Taller de Proyectos/Taller-de-Proyectos2/Codigo/Back-end/Back-end&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\entity" />
+      <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\controller" />
+      <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\service" />
+      <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\repository" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ricardo\OneDrive\Desktop\Back-Final-Presentacion10-07\src\main\java\com\HospitalRegional\BancoDeLeche\controller" />
+      <recent name="C:\Users\Ricardo\OneDrive\Desktop\Back-Final-Presentacion10-07\src\main\java\com\HospitalRegional\BancoDeLeche\service" />
+      <recent name="C:\Users\Ricardo\OneDrive\Desktop\Back-Final-Presentacion10-07\src\main\java\com\HospitalRegional\BancoDeLeche\repository" />
+      <recent name="C:\Users\Ricardo\OneDrive\Desktop\Back-Final-Presentacion10-07\src\main\java\com\HospitalRegional\BancoDeLeche\entity" />
+      <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\entity" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="BancoDeLecheApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.HospitalRegional.BancoDeLeche.BancoDeLecheApplication" />
+      <module name="BancoDeLeche" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.HospitalRegional.BancoDeLeche.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BancoDeLecheApplication" />
+        <item itemvalue="Application.BancoDeLecheApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="490f693e-3b5a-4d34-9c51-ca0f49608725" name="Changes" comment="" />
-      <created>1758743392521</created>
+      <changelist id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="" />
+      <created>1746237661961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1758743392521</updated>
+      <updated>1746237661961</updated>
     </task>
+    <task id="LOCAL-00001" summary="todo unido">
+      <option name="closed" value="true" />
+      <created>1752136468217</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752136468217</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="todo unido" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo unido" />
   </component>
 </project>
