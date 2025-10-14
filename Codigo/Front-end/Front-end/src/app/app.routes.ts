@@ -53,6 +53,18 @@ export const routes: Routes = [
       loadComponent: () => import('./leches-disponibles/leches-disponibles.component').then(m => m.LechesDisponiblesComponent),
       canActivate: [AlmacenGuard]
     },
+    {
+      path: 'pase-de-visita',
+      loadComponent: () => import('./pase-de-visita/pase-de-visita.component').then(m => m.PaseDeVisitaComponent),
+      canActivate: [AlmacenGuard]
+    },
+    {
+      path: 'pacientes',
+      loadComponent: () => import('./pacientes/pacientes.component').then(m => m.PacientesComponent),
+      canActivate: [AlmacenGuard]
+    },
+    {
+    },
 
   {
     path: '**',

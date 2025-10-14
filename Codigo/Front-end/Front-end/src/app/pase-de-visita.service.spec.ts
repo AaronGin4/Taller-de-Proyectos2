@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PaseDeVisitaService } from './pase-de-visita.service';
+import { PaseDeVisitaService } from './services/pase-de-visita.service';
 
 describe('PaseDeVisitaService', () => {
   let service: PaseDeVisitaService;
