@@ -1,0 +1,194 @@
+/* --- Header --- */
+.header-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.custom-toolbar {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+}
+.custom-text {
+  color: #0bac99;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* --- Footer --- */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: transparent;
+  z-index: 1000;
+}
+
+/* --- Contenido principal --- */
+.content-container {
+  margin-top: 64px;
+  padding: 20px 20px 100px 20px;
+  position: relative;
+  min-height: calc(100vh - 64px);
+}
+
+/* --- Fondo --- */
+.background-container {
+  position: fixed;
+  top: 13%;
+  left: 8%;
+  width: 85%;
+  height: 80%;
+  background: url('../../assets/logo banco de leche.png') center/contain no-repeat;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* --- Secciones --- */
+.section-container {
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.section-header {
+  padding: 15px 25px;
+  border-radius: 0;
+}
+.section-header span {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.8em;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.uci-header { background: #de1b1b; }
+.quirurgico-header { background: #df7708; }
+.engorde-header { background: #10705b; }
+.intermedio-header { background: #115794; }
+
+/* --- Botones --- */
+button,
+.btnre,
+.custom-button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: large;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.btnre {
+  background: #E64A19;
+  color: #fff;
+}
+.btnre:hover {
+  background: #f07b57;
+  border: 3px solid #E64A19;
+  color: #000;
+}
+.custom-button.primary {
+  background: #e9f817;
+  color: #000;
+}
+.custom-button.primary:hover {
+  background: #e9f356;
+  border: 3px solid #eeff00;
+  color: #000;
+}
+.custom-button.accent {
+  background: #3eeb4c;
+  color: #000;
+}
+.custom-button.accent:hover {
+  background: #76f781;
+  border: 3px solid #00ff15;
+  color: #000;
+}
+.custom-button.warn {
+  background: #ff4d4d;
+  color: #000;
+}
+.custom-button.warn:hover {
+  background: #ff7d7d;
+  border: 3px solid #f80000;
+  color: #000;
+}
+
+/* --- Tabla y scroll --- */
+.table-scroll-container {
+  background: #f8f9fa;
+  overflow: visible;
+}
+mat-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+/* --- Encabezado y celdas uniformes --- */
+mat-header-row {
+  background: #01a9a3;
+}
+mat-header-cell {
+  color: #fff;
+  font-size: 15px !important;
+  font-family: Arial Black, Arial, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px 15px;
+  width: 120px;
+}
+mat-cell {
+  font-size: 20px !important;
+  text-align: center;
+  vertical-align: middle;
+  padding: 16px 12px;
+}
+mat-header-cell.mat-column-cuna,
+mat-cell.mat-column-cuna {
+  min-width: 100px;
+  width: 120px;
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* --- Fila de tabla --- */
+mat-row {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: background-color 0.2s;
+}
+mat-row:hover {
+  background: #e9ecef;
+}
+
+/* --- Íconos de estado --- */
+.estado-icono {
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* --- Scroll --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #01a9a3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
