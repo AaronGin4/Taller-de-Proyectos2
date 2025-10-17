@@ -1,0 +1,149 @@
+<form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
+  <div class="content-container">
+    <div class="background-container"></div>
+    <div class="container">
+      <div class="header-card">
+        <h1 >Registrar Pase de Visita</h1>
+      </div>
+      <form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+       <div class="form-row1">
+  <div class="form-group-centered">
+    <h2>Fecha actual:</h2>
+    <input matInput [value]="today | date: 'dd/MM/yyyy'" disabled>
+  </div>
+  <div class="form-group-centered">
+    <h2>Edad en días:</h2>
+    <input matInput [value]="edadEnDias" disabled>
+  </div>
+  <div class="form-group-centered">
+    <label>Fecha de nacimiento</label>
+      <input matInput [value]="pacienteData.fechaNacimientoPaciente | date: 'dd/MM/yyyy'" disabled>
+  </div>
+  </div>
+
+          <div class="cuna-section" >
+            <div style="text-align: center; ">  
+            <h2>Nro de cuna</h2>
+                <input matInput [value]="idCuna" disabled>
+            </div>
+              </div>
+  
+          <!-- Llamada telefónica -->
+          <div class="form-row">
+  <div class="form-col">
+    <h2>Llamada de teléfono</h2>
+    <mat-radio-group formControlName="llamadaTelefono">
+      <mat-radio-button value="Si">Sí</mat-radio-button>
+      <mat-radio-button value="No">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+
+  
+          <!-- Pesos -->
+          <div class="form-row weights-section">
+            <div class="weight-group">
+              <h3>Peso del día anterior</h3>
+              <input matInput [value]="pesoAnterior + ' gr'" disabled>
+            </div>
+            
+            <div class="weight-group">
+              <h3>Peso actual (gr)</h3>
+              <input matInput formControlName="pesoDelDia" type="number" (blur)="calcularDelta()">
+            </div>
+            
+            <div class="weight-group">
+              <h3>Delta peso</h3>
+              <input matInput 
+                     [value]= "deltaPeso.toFixed(2) + '%' "
+                     disabled>
+            </div>
+          </div>
+  
+          <!-- Requerimientos -->
+          <div class="form-row">
+            <div class="form-col-full">
+              <h2 class="section-title">Requerimientos del día</h2>
+            </div>
+          </div>
+  
+          <div class="form-row requirements-grid">
+            <div class="requirement-item">
+  <h3>N° de tomas</h3>
+  <mat-select formControlName="nroTomas">
+    <mat-option [value]="4" style="background-color: white;">4</mat-option>
+    <mat-option [value]="6" style="background-color: white;">6</mat-option>
+    <mat-option [value]="8" style="background-color: white;">8</mat-option>
+    <mat-option [value]="12"style="background-color: white;">12</mat-option>
+  </mat-select>
+  <mat-error *ngIf="visitaForm.get('nroTomas')?.hasError('required')">
+    Campo requerido
+  </mat-error>
+</div>
+
+            <div class="requirement-item">
+              <h3>Cantidad por toma (ml)</h3>
+                <input matInput type="number" formControlName="cantidadToma">
+            </div>
+            
+            <div class="requirement-item">
+              <h3>Tipo de leche</h3>
+                <mat-select formControlName="tipoLeche">
+                  <mat-option value="Calostro" style="background-color: white;">Calostro</mat-option>
+                  <mat-option value="Transición" style="background-color: white;">Transición</mat-option>
+                  <mat-option value="Madura" style="background-color: white;">Madura</mat-option>
+                </mat-select>
+            </div>
+          </div>
+  
+          <!-- Opciones adicionales -->
+          <div class="form-row options-grid" >
+            <div class="option-item" >
+              <h3>Contenido Energético</h3>
+                <mat-select formControlName="contenidoEnergetico">
+                  <mat-option value="Hipercalórico" style="background-color: white;">Hipercalórico</mat-option>
+                  <mat-option value="Normocalórico" style="background-color: white;">Normocalórico</mat-option>
+                  <mat-option value="Hipocalórico" style="background-color: white;">Hipocalórico</mat-option>
+                </mat-select>
+            </div>
+            
+            <div class="option-item">
+              <h3>Vía de Administración</h3>
+  
+                <mat-select formControlName="viaAdministracion">
+                    <mat-option value="SOG" style="background-color: white;">SOG</mat-option>
+                    <mat-option value="SUCCION" style="background-color: white;">Succión</mat-option>
+                    <mat-option value="CARRILLO" style="background-color: white;">Carrillo</mat-option>
+                </mat-select>
+            </div>
+            <div class="option-item combined-group">
+              <div class="radio-group">
+                <h3>Calostro Terapia</h3>
+                <mat-radio-group formControlName="calostroterapia">
+                  <mat-radio-button value="Si">Sí</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="select-group">
+                <h3>Área</h3>
+                  <mat-select formControlName="area">
+                    <mat-option value="UCIN" style="background-color: white;">UCIN</mat-option>
+                    <mat-option value="UCIN Quirúrgico" style="background-color: white;">UCIN Quirúrgico</mat-option>
+                    <mat-option value="Intermedio" style="background-color: white;">Intermedio</mat-option>
+                    <mat-option value="Engorde" style="background-color: white;">Engorde</mat-option>
+                  </mat-select>
+              </div>
+            </div>
+          </div>
+          <div class="botones">
+            <button type="button" class="btnre" (click)="regresar()">Regresar</button>
+            <button class="btnreg" type="submit" >
+              Registrar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </form>

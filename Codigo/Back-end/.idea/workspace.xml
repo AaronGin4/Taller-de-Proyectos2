@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="todo unido">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/PasteurizadaDispensada.java" afterDir="false" />
+=======
+>>>>>>> cdde9b0dd8f743bf08ac87a6d6cb69dd88399b6c
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +65,11 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/Ricardo/OneDrive/Documentos/Taller de Proyectos/Taller-de-Proyectos2/Codigo/Back-end",
+=======
+    "last_opened_file_path": "C:/Users/EstudianteUC/Desktop/Taller de proyectos/Taller-de-Proyectos2/Codigo/Back-end",
+>>>>>>> cdde9b0dd8f743bf08ac87a6d6cb69dd88399b6c
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -101,6 +108,13 @@
         <item itemvalue="Application.BancoDeLecheApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

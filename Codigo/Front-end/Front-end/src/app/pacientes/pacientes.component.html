@@ -1,0 +1,292 @@
+<!-- pacientes1.component.html -->
+<div class="header-container">
+  <mat-toolbar class="custom-toolbar">
+    <span class="custom-text">Pacientes</span>
+  </mat-toolbar>
+</div>
+
+<div class="content-container">
+  <!-- Fondo -->
+  <div class="background-container"></div>
+  
+  <!-- Sección UCI -->
+  <div class="section-container">
+    <mat-card class="section-header uci-header">
+      <span>UCIN</span>
+    </mat-card>
+    <div class="table-scroll-container">
+      <mat-table [dataSource]="uciDataSource" class="mat-elevation-z8">
+        <!-- Columnas -->
+        <ng-container matColumnDef="cuna">
+          <mat-header-cell *matHeaderCellDef>NRO DE CUNA</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.cunaNumber}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>NOMBRE</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="paseVisita">
+          <mat-header-cell *matHeaderCellDef>PASE DE VISITA</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+           <button mat-raised-button 
+               class="custom-button primary"
+               [routerLink]='["/pase-de-visita", element.idPaciente , element.cunaNumber]'>
+                AGREGAR
+           </button>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dispensacion">
+          <mat-header-cell *matHeaderCellDef>DISPENSACION</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button accent"
+                    [routerLink]='["/dispensacion", element.idPaciente , element.cunaNumber]'>
+              AGREGAR
+            </button>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="estadoDispensacion">
+  <mat-header-cell *matHeaderCellDef>ESTADO</mat-header-cell>
+  <mat-cell *matCellDef="let element">
+  <span class="estado-icono"
+        [ngClass]="{
+          'estado-verde': element.estadoDispensacion === '✅',
+          'estado-rojo': element.estadoDispensacion === '😟',
+          'estado-gris': element.estadoDispensacion === '⛔'
+        }"
+        [matTooltip]="
+          element.estadoDispensacion === '✅' ? 'Tomas completas' :
+          element.estadoDispensacion === '😟' ? 'Tomas incompletas' :
+          'Sin pase de visita ni dispensación hoy'
+        ">
+    {{ element.estadoDispensacion }}
+  </span>
+</mat-cell>
+</ng-container>
+
+        <ng-container matColumnDef="verPaseVisita">
+          <mat-header-cell *matHeaderCellDef>VER PASE DE VISITA</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button warn"
+                    [routerLink]='["/ver-pase-de-visita", element.idPaciente, element.cunaNumber]'>
+              VER
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+  <!-- Sección Quirúrgico -->
+  <div class="section-container">
+    <mat-card class="section-header quirurgico-header">
+      <span>UCIN QUIRURGICO</span>
+    </mat-card>
+    <div class="table-scroll-container">
+      <mat-table [dataSource]="quirurgicoDataSource" class="mat-elevation-z8">
+          <!-- Columnas -->
+          <ng-container matColumnDef="cuna">
+            <mat-header-cell *matHeaderCellDef>NRO DE CUNA</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.cunaNumber}}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="nombre">
+            <mat-header-cell *matHeaderCellDef>NOMBRE</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="paseVisita">
+            <mat-header-cell *matHeaderCellDef>PASE DE VISITA</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-raised-button 
+                      class="custom-button primary"   
+                      [routerLink]='["/pase-de-visita", element.idPaciente , element.cunaNumber]'>
+                AGREGAR
+              </button>
+            </mat-cell>
+          </ng-container>
+  
+          <ng-container matColumnDef="dispensacion">
+            <mat-header-cell *matHeaderCellDef>DISPENSACION</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-raised-button 
+                      class="custom-button accent"
+                      [routerLink]='["/dispensacion", element.idPaciente , element.cunaNumber]'>                
+                        AGREGAR
+              </button>
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="estadoDispensacion">
+  <mat-header-cell *matHeaderCellDef>ESTADO</mat-header-cell>
+  <mat-cell *matCellDef="let element">
+  <span class="estado-icono"
+        [matTooltip]="
+          element.estadoDispensacion === '✅' ? 'Tomas completas' :
+          element.estadoDispensacion === '😟' ? 'Tomas incompletas' :
+          'Sin pase de visita ni dispensación hoy'
+        ">
+    {{ element.estadoDispensacion }}
+  </span>
+</mat-cell>
+
+</ng-container>
+          <ng-container matColumnDef="verPaseVisita">
+            <mat-header-cell *matHeaderCellDef>VER PASE DE VISITA</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-raised-button 
+                      class="custom-button warn"
+                      [routerLink]='["/ver-pase-de-visita", element.idPaciente, element.cunaNumber]'>
+                VER
+              </button>
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+  </div>
+
+  <!-- Sección Engorde -->
+  <div class="section-container">
+    <mat-card class="section-header engorde-header">
+      <span>ENGORDE</span>
+    </mat-card>
+    <div class="table-scroll-container">
+      <mat-table [dataSource]="engordeDataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="cuna">
+          <mat-header-cell *matHeaderCellDef>NRO DE CUNA</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.cunaNumber}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>NOMBRE</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="paseVisita">
+          <mat-header-cell *matHeaderCellDef>PASE DE VISITA</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button primary"
+                   [routerLink]='["/pase-de-visita", element.idPaciente , element.cunaNumber]'>
+              AGREGAR
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dispensacion">
+          <mat-header-cell *matHeaderCellDef>DISPENSACION</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button accent"
+                    [routerLink]='["/dispensacion", element.idPaciente , element.cunaNumber]'>               
+                     AGREGAR
+            </button>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="estadoDispensacion">
+  <mat-header-cell *matHeaderCellDef>ESTADO</mat-header-cell>
+  <mat-cell *matCellDef="let element">
+  <span class="estado-icono"
+        [matTooltip]="
+          element.estadoDispensacion === '✅' ? 'Tomas completas' :
+          element.estadoDispensacion === '😟' ? 'Tomas incompletas' :
+          'Sin pase de visita ni dispensación hoy'
+        ">
+    {{ element.estadoDispensacion }}
+  </span>
+</mat-cell>
+
+</ng-container>
+        <ng-container matColumnDef="verPaseVisita">
+          <mat-header-cell *matHeaderCellDef>VER PASE DE VISITA</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button warn"
+                    [routerLink]='["/ver-pase-de-visita", element.idPaciente, element.cunaNumber]'>
+              VER
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <mat-card class="section-header intermedio-header">
+      <span>INTERMEDIO</span>
+    </mat-card>
+    <div class="table-scroll-container">
+      <mat-table [dataSource]="intermedioDataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="cuna">
+          <mat-header-cell *matHeaderCellDef>NRO DE CUNA</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.cunaNumber}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>NOMBRE</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="paseVisita">
+          <mat-header-cell *matHeaderCellDef>PASE DE VISITA</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button primary"
+                    [routerLink]='["/pase-de-visita", element.idPaciente , element.cunaNumber]'>
+              AGREGAR
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dispensacion">
+          <mat-header-cell *matHeaderCellDef>DISPENSACION</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button accent"
+                    [routerLink]='["/dispensacion", element.idPaciente , element.cunaNumber]'>               
+                     AGREGAR
+            </button>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="estadoDispensacion">
+  <mat-header-cell *matHeaderCellDef>ESTADO</mat-header-cell>
+ <mat-cell *matCellDef="let element">
+  <span class="estado-icono"
+        [matTooltip]="
+          element.estadoDispensacion === '✅' ? 'Tomas completas' :
+          element.estadoDispensacion === '😟' ? 'Tomas incompletas' :
+          'Sin pase de visita ni dispensación hoy'
+        ">
+    {{ element.estadoDispensacion }}
+  </span>
+</mat-cell>
+
+</ng-container>
+        <ng-container matColumnDef="verPaseVisita">
+          <mat-header-cell *matHeaderCellDef>VER PASE DE VISITA</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button 
+                    class="custom-button warn"
+                    [routerLink]='["/ver-pase-de-visita", element.idPaciente, element.cunaNumber]'>
+              VER
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>
+<footer>
+  <button class="btnre" [routerLink]='["/menu-areas"]'>Regresar</button>
+</footer>
