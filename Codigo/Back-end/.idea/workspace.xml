@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="todo unido" />
+=======
+    <list default="true" id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="todo unido">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> 43ff18c17a8967d296d18e906cb26c0c7ed8f59b
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +55,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.BancoDeLecheApplication.executor": "Run",
@@ -61,6 +68,21 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Documentos/Taller-de-Proyectos2/Codigo/Back-end",
     "settings.editor.selected.configurable": "preferences.lookFeel"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BancoDeLecheApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BancoDeLeche [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.BancoDeLeche.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ricardo/OneDrive/Documentos/Taller de Proyectos/Taller-de-Proyectos2/Codigo/Back-end&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/EstudianteUC/Desktop/Taller de proyectos/Taller-de-Proyectos2/Codigo/Back-end&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+>>>>>>> 43ff18c17a8967d296d18e906cb26c0c7ed8f59b
   }
 }]]></component>
   <component name="RecentsManager">
