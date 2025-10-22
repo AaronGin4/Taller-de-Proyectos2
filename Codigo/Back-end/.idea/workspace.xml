@@ -4,59 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="todo unido">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PaseDeVisitaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/PaseDeVisita.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/repository/PaseDeVisitaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/PaseDeVisitaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Back-end.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/BancoDeLecheApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/CunaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/DiagnosticoPacienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/MadreController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PacienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/RegistroLecheCrudaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/RegistroLechePasteurizadaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/controller/UsuariosController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Cuna.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/DiagnosticoPaciente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Madre.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Paciente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/RegistroLecheCruda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/RegistroLechePasteurizada.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Usuarios.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/CunaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/DiagnosticoPacienteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/MadreRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/PacienteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/RegistroLecheCrudaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/RegistroLechePasteurizadaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/repository/UsuariosRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/CunaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/DiagnosticoPacienteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/MadreService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/PacienteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/RegistroLecheCrudaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/RegistroLechePasteurizadaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/java/com/HospitalRegional/BancoDeLeche/service/UsuariosService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back-end/src/test/java/com/HospitalRegional/BancoDeLeche/BancoDeLecheApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2. E4 Sprint Backlog con tareas y estimaciones.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2. E4 Sprint Backlog con tareas y estimaciones.docx" afterDir="false" />
-    </list>
+    <list default="true" id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="todo unido" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,20 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BancoDeLecheApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BancoDeLeche [spring-boot:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.BancoDeLeche.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ricardo/OneDrive/Documentos/Taller de Proyectos/Taller-de-Proyectos2/Codigo/Back-end/Back-end&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BancoDeLecheApplication.executor": "Run",
+    "Maven.BancoDeLeche [spring-boot:run].executor": "Run",
+    "Maven.BancoDeLeche.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Documentos/Taller-de-Proyectos2/Codigo/Back-end",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\entity" />

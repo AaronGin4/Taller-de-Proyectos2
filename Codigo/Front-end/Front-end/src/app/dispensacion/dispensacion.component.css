@@ -1,0 +1,423 @@
+:root {
+  --input-bg: #fff;
+  --input-border-radius: 4px;
+  --table-header-bg: #172085;
+  --table-header-color: #fff;
+  --table-row-odd-bg: #f3f3f3;
+}
+
+/* --- Fondo y contenedor principal --- */
+.background-container {
+  position: fixed;
+  top: 13%;
+  left: 8%;
+  width: 85%;
+  height: 80%;
+  background-image: url('../../assets/logo banco de leche.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+/* --- Tarjeta Principal --- */
+.form-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* --- Título Sección --- */
+.section-card {
+  background-color: #11b1a1;
+  border-radius: 15px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+}
+
+/* --- Secciones --- */
+.form-section {
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.form-section1 {
+  margin-bottom: 20px;
+  border: 1px solid #000;
+  background-color: #ff0101;
+  border-radius: 8px;
+  overflow: hidden;
+  color: #fff;
+  font-family: Arial Black;
+  text-align: center;
+}
+.section-header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+}
+.section-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+.section-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 1.5rem 0 1rem;
+}
+.milk-table-scroll {
+  max-height: 360px; /* muestra aprox. 8 registros */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* Fijar encabezado */
+.milk-table mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* asegúrate de que esté por encima */
+  background-color: #11b1a1; /* mismo color que el encabezado */
+}
+
+/* Alineación de columnas */
+.milk-table mat-header-cell,
+.milk-table mat-cell {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  flex: 1 1 0;
+}
+
+/* Opcional: mejora visual para filas */
+.milk-table mat-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #34495e;
+}
+.form-group input,
+.form-row .mat-form-field input.mat-input-element {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: var(--input-border-radius);
+  font-size: 20px;
+  background-color: var(--input-bg);
+  transition: border-color 0.3s;
+}
+.form-group input:focus,
+.form-row .mat-form-field input.mat-input-element:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+.form-row .mat-form-field {
+  width: 100%;
+}
+.form-row .mat-form-field .mat-form-field-flex {
+  background-color: transparent !important;
+  border: 1px solid #ced4da !important;
+  border-radius: var(--input-border-radius) !important;
+  padding: 0 !important;
+}
+
+/* --- Responsive para fila de prefactura y cantidad por toma --- */
+.form-row.responsive-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+.form-row.responsive-row .form-group {
+  flex: 1 1 200px;
+  min-width: 150px;
+}
+
+/* --- Grillas y tarjetas --- */
+.leche-grid,
+.colostrum-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+.colostrum-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 500px) {
+  .leche-grid,
+  .colostrum-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .two-column {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* --- Milk cards --- */
+.milk-card,
+.colostrum-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.milk-card:hover,
+.colostrum-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  background-color: #f1f1f1;
+}
+.milk-card.selected,
+.time-card.selected {
+  border-color: #11b1a1;
+  background-color: #e8f7f5;
+  box-shadow: 0 0 0 2px rgba(17,177,161,0.3);
+}
+.milk-card.disabled,
+.time-card.locked {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(0.9);
+  background-color: #f5f5f5;
+}
+.milk-card ::ng-deep .mat-checkbox-layout {
+  width: 100%;
+}
+
+/* --- Horarios --- */
+.time-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+@media (min-width: 768px) {
+  .time-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.time-column {
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: 20px;
+}
+.time-column.am-column { background: #fff3e0; }
+.time-column.pm-column { background: #e3f2fd; }
+.time-column h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+}
+.time-card {
+  transition: all 0.2s ease;
+}
+.time-card:not(.disabled):hover {
+  background-color: #f0f0f0;
+}
+.time-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.8rem 0;
+  color: #2b2626;
+  font-family: Arial Black, sans-serif;
+}
+.time-item mat-checkbox {
+  display: block;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+.time-item ::ng-deep .mat-checkbox-label {
+  z-index: 1;
+  position: relative;
+}
+.time-slot-container {
+  flex-grow: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 4px 8px;
+  transition: background-color 0.3s ease;
+  margin: 2px 0;
+}
+.time-slot-container[style*="#4CAF50"] {
+  color: #fff;
+  font-weight: bold;
+}
+.time-item[disabled] {
+  opacity: 0.5;
+}
+.time-icon-sol, .time-icon-luna {
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.time-icon-sol { background-image: url("../../assets/sol.png"); }
+.time-icon-luna { background-image: url("../../assets/luna.png"); }
+
+/* --- Tabla de leches disponibles --- */
+.milk-table {
+  width: 100%;
+  margin: 2rem 0;
+  background-color: #ffffff9d;
+  overflow-x: auto;
+  display: block;
+  font-size: 14px;
+}
+.milk-table mat-header-row { background-color: #11b1a1; }
+.milk-table mat-header-cell { color: black; font-family: Arial Black; }
+.milk-table mat-row:nth-child(odd) { color: black; }
+
+@media (min-width: 768px) {
+  .milk-table {
+    font-size: 16px;
+  }
+}
+
+/* --- Botones --- */
+button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+.botones {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+@media (min-width: 600px) {
+  .botones {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  button {
+    width: auto;
+  }
+}
+.btnre {
+  background: #E64A19;
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57;
+  border: 3px solid #E64A19;
+  color: black;
+}
+.btnreg {
+  background: #040ab2;
+  color: white;
+}
+.btnreg:hover {
+  background-color: #4163e8;
+  border: 3px solid #040ab2;
+  color: black;
+}
+.tomas-buttons,
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.tomas-buttons button {
+  background-color: #11b1a1;
+}
+.tomas-buttons button:hover {
+  background-color: #0e8e81;
+}
+
+/* --- Mensajes --- */
+.tomas-info {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.tomas-info p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* --- Animaciones / Estados --- */
+.active-selection {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 2px #3f51b5, 0 0 8px rgba(63,81,181,0.5);
+}
+.milk-type-error {
+  border: 2px solid red;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: rgba(255,0,0,0.1);
+  animation: pulse 1.5s infinite;
+}
+.selection-control {
+  margin: 15px 0;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.4); opacity: 1; }
+  50% { box-shadow: 0 0 0 10px rgba(255,0,0,0); opacity: 0.7; }
+  100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); opacity: 1; }
+}

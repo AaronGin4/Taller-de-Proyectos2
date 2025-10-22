@@ -1,0 +1,34 @@
+<form class="form-container">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title >Mezcla de leche autologa + Pasteurizada</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="form-group">
+          <label>Cantidad (ml)</label>
+          <input matInput type="number" [(ngModel)]="quantity" name="quantity" required disabled="true">
+      </div>
+      <div class="form-group">
+          <label>Código de Leche Pasteurizada</label>
+          <input matInput [(ngModel)]="code" name="codigoPasteurizada" required>
+      </div>
+
+      <div class="form-group">
+          <label>Cantidad de leche Pasteurizada (ml)</label>
+          <input matInput type="number" [(ngModel)]="cantidadPasteurizada" name="cantidadPasteurizada" required>
+      </div>
+      <div class="form-group">
+          <label>Cantidad de leche Autologa (ml)</label>
+          <input matInput type="number" [(ngModel)]="cantidadAutologa" name="autologa" required>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-stroked-button color="warn" (click)="cancel()">Cancelar</button>
+      <button mat-flat-button color="primary" [disabled]="!code" (click)="register()">
+        Registrar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
