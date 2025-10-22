@@ -1,0 +1,243 @@
+<p>dispensacion works!</p>
+<div class="container">
+  <mat-card class="form-card">
+    <mat-card-header>
+      <div class="background-container"></div>
+      <mat-card class="section-card">
+        <mat-card-title>Dispensación</mat-card-title>
+      </mat-card>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Campos Principales -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="form-group prefactura-group">
+      <label>Prefactura:</label>
+            <input type="text" [(ngModel)]="prefactura" [disabled]="true" style="width: 100px;">
+      <label>Telefono:</label>
+            <input type="text" [(ngModel)]="telefono" [disabled]="true" style="width: 100px;">
+    </div>
+    <div class="form-group">
+    <label>Cantidad por toma (ml):</label>
+    <input type="number" [(ngModel)]="cantidadPorToma" [disabled]="true">
+  </div>
+        </div>
+        <div class="section-content two-column">
+          <div class="form-group">
+            <label>N° Cuna</label>
+            <input type="text" [(ngModel)]="cunaNumber" required [disabled]="true">
+          </div>
+          <div class="form-group">
+            <label>Apellidos del Paciente</label>
+            <input type="text" [(ngModel)]="patientName" [disabled]="true">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tipo de Leche -->
+      <h2 class="section-title">Tipo de Leche</h2>
+      <div class="leche-grid">
+        <!-- Cada checkbox envuelto en un contenedor de tarjeta -->
+        <div class="milk-card"
+     [class.selected]="selectedMilkTypes.autologa"
+     [class.disabled]="npo || selectedMilkTypes._locked.autologa || temporarilyDisabledMilk === 'autologa'">
+  <mat-checkbox 
+    (change)="onAutologaCheckboxChange($event); onMilkTypeSelected('autologa')"
+    [disabled]="npo || selectedMilkTypes._locked.autologa || temporarilyDisabledMilk === 'autologa'"
+    [checked]="selectedMilkTypes.autologa">
+    Leche Autóloga
+  </mat-checkbox>
+</div>
+
+ <div class="milk-card"
+     [class.selected]="selectedMilkTypes.autologaFormula"
+     [class.disabled]="npo || selectedMilkTypes._locked.autologaFormula || temporarilyDisabledMilk === 'autologaFormula'">
+  <mat-checkbox 
+    (change)="onAutologaFormulaCheckboxChange($event); onMilkTypeSelected('autologaFormula')"
+    [disabled]="npo || selectedMilkTypes._locked.autologaFormula || temporarilyDisabledMilk === 'autologaFormula'"
+    [checked]="selectedMilkTypes.autologaFormula">
+    Leche Autóloga + Fórmula
+  </mat-checkbox>
+</div>
+
+<div class="milk-card"
+     [class.selected]="selectedMilkTypes.pasteurizada"
+     [class.disabled]="npo || selectedMilkTypes._locked.pasteurizada || temporarilyDisabledMilk === 'pasteurizada'">
+  <mat-checkbox 
+    (change)="onPasteurizedCheckboxChange($event); onMilkTypeSelected('pasteurizada')"
+    [checked]="selectedMilkTypes.pasteurizada"
+    [disabled]="npo || selectedMilkTypes._locked.pasteurizada || temporarilyDisabledMilk === 'pasteurizada'">
+    Leche Pasteurizada
+  </mat-checkbox>
+</div>
+
+ <div class="milk-card"
+     [class.selected]="selectedMilkTypes.pasteurizadaFormula"
+     [class.disabled]="npo || selectedMilkTypes._locked.pasteurizadaFormula || temporarilyDisabledMilk === 'pasteurizadaFormula'">
+  <mat-checkbox 
+    (change)="onPasteurizadaFormulaCheckboxChange($event); onMilkTypeSelected('pasteurizadaFormula')"
+    [disabled]="npo || selectedMilkTypes._locked.pasteurizadaFormula || temporarilyDisabledMilk === 'pasteurizadaFormula'"
+    [checked]="selectedMilkTypes.pasteurizadaFormula">
+    Leche Pasteurizada + Fórmula
+  </mat-checkbox>
+</div>
+
+<div class="milk-card"
+     [class.selected]="selectedMilkTypes.lmd"
+     [class.disabled]="npo || selectedMilkTypes._locked.lmd || temporarilyDisabledMilk === 'lmd'">
+  <mat-checkbox 
+    (change)="onLmdCheckboxChange($event); onMilkTypeSelected('lmd')"
+    [disabled]="npo || selectedMilkTypes._locked.lmd || temporarilyDisabledMilk === 'lmd'"
+    [checked]="selectedMilkTypes.lmd">
+    LMD (Lactancia Materna)
+  </mat-checkbox>
+</div>
+
+<div class="milk-card"
+     [class.selected]="selectedMilkTypes.formulaTermino1"
+     [class.disabled]="npo || selectedMilkTypes._locked.formulaTermino1 || temporarilyDisabledMilk === 'formulaTermino1'">
+  <mat-checkbox 
+    (change)="onFormulaTermino1CheckboxChange($event); onMilkTypeSelected('formulaTermino1')"
+    [disabled]="npo || selectedMilkTypes._locked.formulaTermino1 || temporarilyDisabledMilk === 'formulaTermino1'"
+    [checked]="selectedMilkTypes.formulaTermino1">
+    Fórmula a Término 1
+  </mat-checkbox>
+</div>
+
+<div class="milk-card"
+     [class.selected]="selectedMilkTypes.autologaPasteurizada"
+     [class.disabled]="npo || selectedMilkTypes._locked.autologaPasteurizada || temporarilyDisabledMilk === 'autologaPasteurizada'">
+  <mat-checkbox 
+    (change)="onAutologaPasteurizadaCheckboxChange($event); onMilkTypeSelected('autologaPasteurizada')"
+    [disabled]="npo || selectedMilkTypes._locked.autologaPasteurizada || temporarilyDisabledMilk === 'autologaPasteurizada'"
+    [checked]="selectedMilkTypes.autologaPasteurizada">
+    Leche Autóloga + Pasteurizada
+  </mat-checkbox>
+</div>
+<div class="milk-card"
+     [class.selected]="selectedMilkTypes.formulaPretermino2"
+     [class.disabled]="npo || selectedMilkTypes._locked.formulaPretermino2 || temporarilyDisabledMilk === 'formulaPretermino2'">
+  <mat-checkbox 
+    (change)="onFormulaPretermino2CheckboxChange($event); onMilkTypeSelected('formulaPretermino2')"
+    [disabled]="npo || selectedMilkTypes._locked.formulaPretermino2 || temporarilyDisabledMilk === 'formulaPretermino2'"
+    [checked]="selectedMilkTypes.formulaPretermino2">
+    Fórmula Pretérmino 2
+  </mat-checkbox>
+</div>
+
+      </div>
+
+      <div class="form-section1">
+        <div class="npo-section">
+          <mat-checkbox [(ngModel)]="npo">NPO</mat-checkbox>
+        </div>
+      </div>
+
+      <h2 class="section-title">Registro de Tomas</h2>
+      <div class="tomas-info">
+        <p>Tomas prescritas: {{ ultimoPaseVisita?.nroDeTomasDeLeche || 0 }}</p>
+      </div>
+      
+      <div class="time-grid">
+        <div class="time-column pm-column">
+          <h3>Tarde/Noche (PM)</h3>
+          
+          <div *ngFor="let time of filteredPmSlots" class="time-item">
+            <div class="time-icon-luna"></div>
+            <div class="time-slot-container" [style.background]="getTimeSlotColor(time)">
+              <div class="time-card" [class.selected]="time.selected" [class.locked]="time.locked">
+                <mat-checkbox
+  [checked]="time.selected"
+  (change)="onTimeSlotCheckboxClick($event, time)"
+  [disabled]="time.disabled || time.locked"
+  [style.background]="getTimeSlotColor(time)">
+  {{ time.hour }}
+</mat-checkbox>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="time-column am-column">
+          <h3>Madrugada/Mañana (AM)</h3>
+          <div *ngFor="let time of filteredAmSlots" class="time-item">
+            <div class="time-icon-sol"></div>
+            <div class="time-slot-container" [style.background]="getTimeSlotColor(time)">
+              <div class="time-card" [class.selected]="time.selected" [class.locked]="time.locked">
+                <mat-checkbox
+  [checked]="time.selected"
+  (change)="onTimeSlotCheckboxClick($event, time)"
+  [disabled]="time.disabled ||  time.locked"
+  [style.background]="getTimeSlotColor(time)">
+  {{ time.hour }}
+</mat-checkbox>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div *ngIf="showCalostroSection" style="margin-top: 1.5rem;">
+  <h2 class="section-title">Calostroterapia (6ml)</h2>
+
+  <div class="colostrum-grid">
+    <div class="colostrum-card">
+      <mat-checkbox
+  [checked]="colostrum.autologous"
+  [disabled]="colostrumLocked.autologous || colostrumLocked.pasteurized || npo"
+  (change)="onColostrumCheckboxChange('autologous')">
+  Autóloga
+</mat-checkbox>
+    </div>
+
+    <div class="colostrum-card">
+      <mat-checkbox
+  [checked]="colostrum.pasteurized"
+  [disabled]="colostrumLocked.pasteurized || colostrumLocked.autologous || npo"
+  (change)="onColostrumCheckboxChange('pasteurized')">
+  Pasteurizada
+</mat-checkbox>
+    </div>
+  </div>
+</div>
+
+    <h2 class="section-title">Leches Disponibles</h2>
+
+<div class="milk-table-scroll">
+  <mat-table [dataSource]="milks" class="milk-table">
+    <!-- tus columnas -->
+    <ng-container matColumnDef="code">
+      <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+      <mat-cell *matCellDef="let milk">{{ milk.code }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef>Tipo</mat-header-cell>
+      <mat-cell *matCellDef="let milk">{{ milk.type }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef>Cantidad (ml)</mat-header-cell>
+      <mat-cell *matCellDef="let milk">{{ milk.quantity }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="calorico">
+      <mat-header-cell *matHeaderCellDef>Contenido Energético</mat-header-cell>
+      <mat-cell *matCellDef="let milk">{{ milk.calorico }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="kcal">
+      <mat-header-cell *matHeaderCellDef>Kcal</mat-header-cell>
+      <mat-cell *matCellDef="let milk">{{ milk.kcal }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+      <!-- Botones Finales -->
+      <div class="botones">
+        <button class="btnre" [routerLink]='["/pacientes"]'>Cancelar</button>
+        <button class="btnreg" (click)="submitForm()">Registrar</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

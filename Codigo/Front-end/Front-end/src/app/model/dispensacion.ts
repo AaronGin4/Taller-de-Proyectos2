@@ -44,7 +44,8 @@ export interface Paciente {
     nombrePaciente: string;
     apellidoPaternoPaciente: string;
     apellidoMaternoPaciente: string;
-    numeroPreFactura: string;
+    numeroPreFactura
+    : string;
     cuna: Cuna;
     telefonoPaciente: string;
   }
