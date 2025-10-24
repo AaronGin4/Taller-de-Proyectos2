@@ -1,0 +1,349 @@
+<p>registro-madre works!</p>
+<html>
+
+<head>
+  <link rel="stylesheet" href="registro-madre.component.css">
+</head>
+
+<body>
+  <form [formGroup]="form" (ngSubmit)="create()" class="form-card">
+    <h2>REGISTRO DE MADRE</h2>
+
+    <!-- Sección: Identificación -->
+    <div class="section">
+      <h3>Identificación</h3>
+      <div class="row">
+        <div class="col">
+          <label for="idMadre">DNI de la madre</label>
+          <input type="text" id="idMadre" formControlName="idMadre" maxlength="8" required>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Datos Personales -->
+    <div class="section">
+      <h3>Datos Personales</h3>
+      <div class="row">
+        <div class="col">
+          <label for="nombreMadre">Nombres</label>
+          <input type="text" id="nombreMadre" formControlName="nombreMadre" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+        <div class="col">
+          <label for="apellidoPaternoMadre">Apellido Paterno</label>
+          <input type="text" id="apellidoPaternoMadre" formControlName="apellidoPaternoMadre" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+        <div class="col">
+          <label for="apellidoMaternoMadre">Apellido Materno</label>
+          <input type="text" id="apellidoMaternoMadre" formControlName="apellidoMaternoMadre" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="fechaNacimientoMadre">Fecha de Nacimiento</label>
+          <input type="date" id="fechaNacimientoMadre" formControlName="fechaNacimientoMadre">
+        </div>
+        <div class="col">
+          <label for="telefonoMadre">Teléfono</label>
+          <input type="text" id="telefonoMadre" formControlName="telefonoMadre" maxlength="9" pattern="^\d{9}$"
+            inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,9)" required>
+        </div>
+        <div class="col">
+          <label for="tallaMadre">Talla(cm)</label>
+          <input type="number" id="tallaMadre" formControlName="tallaMadre">
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Ubicación -->
+    <div class="section">
+      <h3>Ubicación</h3>
+      <div class="row">
+        <div class="col">
+          <label for="departamento">Departamento</label>
+          <input type="text" id="departamento" formControlName="departamento" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+        <div class="col">
+          <label for="provincia">Provincia</label>
+          <input type="text" id="provincia" formControlName="provincia" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+        <div class="col">
+          <label for="distrito">Distrito</label>
+          <input type="text" id="distrito" formControlName="distrito" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="direccionActualMadre">Dirección</label>
+          <input type="text" id="direccionActualMadre" formControlName="direccionActualMadre">
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Salud y Controles -->
+    <div class="section">
+      <h3>Salud y Controles</h3>
+      <div class="row">
+        <div class="col">
+          <label for="centroSaludControlProcedencia">Centro de Salud de Procedencia</label>
+          <input type="text" id="centroSaludControlProcedencia" formControlName="centroSaludControlProcedencia">
+        </div>
+        <div class="col">
+          <label for="numeroControles">Número de Controles</label>
+          <input type="number" id="numeroControles" formControlName="numeroControles">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="ocupacion">Ocupación</label>
+          <input type="text" id="ocupacion" formControlName="ocupacion" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas">
+        </div>
+        <div class="col">
+          <label for="pesoInicialMadreGestante">Peso Inicial(kg)</label>
+          <input type="number" id="pesoInicialMadreGestante" formControlName="pesoInicialMadreGestante">
+        </div>
+        <div class="col">
+          <label for="pesoFinalMadreGestante">Peso Final(kg)</label>
+          <input type="number" id="pesoFinalMadreGestante" formControlName="pesoFinalMadreGestante">
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Hábitos y Antecedentes -->
+    <div class="section">
+      <h3>Hábitos y Antecedentes</h3>
+      <div class="radio-row">
+        <label>Transfusión de Sangre:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="transfusionSangreMadre" value="Si">Sí</label>
+          <label><input type="radio" formControlName="transfusionSangreMadre" value="No">No</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Consumo de Cigarros:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="consumoCigarros" value="Si">Sí</label>
+          <label><input type="radio" formControlName="consumoCigarros" value="No">No</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Consumo de Drogas:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="consumoDrogas" value="Si">Sí</label>
+          <label><input type="radio" formControlName="consumoDrogas" value="No">No</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Consumo de Medicamentos:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="consumoMedicamentos" value="Si">Sí</label>
+          <label><input type="radio" formControlName="consumoMedicamentos" value="No">No</label>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Enfermedades y Pruebas -->
+    <div class="section">
+      <h3>Enfermedades y Pruebas</h3>
+
+      <div class="radio-row">
+        <label>Enfermedades:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="enfermedades" value="Positivo">Positivo</label>
+          <label><input type="radio" formControlName="enfermedades" value="Negativo">Negativo</label>
+          <label><input type="radio" formControlName="enfermedades" value="Nosesabe">No se Sabe</label>
+        </div>
+      </div>
+
+      <div class="radio-row">
+        <label>Prueba Sífilis:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="pruebaSifilis" value="Positivo">Positivo</label>
+          <label><input type="radio" formControlName="pruebaSifilis" value="Negativo">Negativo</label>
+          <label><input type="radio" formControlName="pruebaSifilis" value="Nosesabe">No se Sabe</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Prueba Hepatitis:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="pruebaHepatitis" value="Positivo">Positivo</label>
+          <label><input type="radio" formControlName="pruebaHepatitis" value="Negativo">Negativo</label>
+          <label><input type="radio" formControlName="pruebaHepatitis" value="Nosesabe">No se Sabe</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Prueba VIH:</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="pruebaVIH" value="Positivo">Positivo</label>
+          <label><input type="radio" formControlName="pruebaVIH" value="Negativo">Negativo</label>
+          <label><input type="radio" formControlName="pruebaVIH" value="Nosesabe">No se Sabe</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Hemoglobinas(Anemia):</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="examenHemoglobina" value="Positivo">Positivo</label>
+          <label><input type="radio" formControlName="examenHemoglobina" value="Negativo">Negativo</label>
+          <label><input type="radio" formControlName="examenHemoglobina" value="Nosesabe">No se Sabe</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label for="enfermedadActual">Enfermedad Actual:</label>
+        <input type="text" id="enfermedadActual" formControlName="enfermedadActual">
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Donación y Otros -->
+    <div class="section">
+      <h3>Donación y Otros</h3>
+      <div class="radio-row">
+        <label>¿Acepta donar leche materna?</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="donarLeche" value="Si">Sí</label>
+          <label><input type="radio" formControlName="donarLeche" value="No">No</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>¿Está apta donar?</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="aptaParaDonar" value="Apta">Sí</label>
+          <label><input type="radio" formControlName="aptaParaDonar" value="NoApta">No</label>
+        </div>
+      </div>
+      <div class="radio-row">
+        <label>Menor de edad</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="menorDeEdad" value="Si">Sí</label>
+          <label><input type="radio" formControlName="menorDeEdad" value="No">No</label>
+        </div>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div *ngIf="form.get('menorDeEdad')?.value === 'Si'" formGroupName="apoderado" class="section"
+        style="margin-top: 24px;">
+        <h3>Datos del Apoderado</h3>
+
+        <div class="row">
+          <div class="col">
+            <label for="idApoderado">DNI del apoderado</label>
+            <input type="number" id="idApoderado" formControlName="idApoderado" maxlength="8" pattern="^\d{8}$"
+              inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,8)" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="nombreApoderado">Nombres</label>
+            <input type="text" id="nombreApoderado" formControlName="nombreApoderado" inputmode="text"
+              oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras permitidas">
+          </div>
+          <div class="col">
+            <label for="apellidoPaternoApoderado">Apellido Paterno</label>
+            <input type="text" id="apellidoPaternoApoderado" formControlName="apellidoPaternoApoderado" inputmode="text"
+              oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras permitidas">
+          </div>
+          <div class="col">
+            <label for="apellidoMaternoApoderado">Apellido Materno</label>
+            <input type="text" id="apellidoMaternoApoderado" formControlName="apellidoMaternoApoderado" inputmode="text"
+              oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras permitidas">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label>Parentesco:</label>
+            <select class="form-control" formControlName="parentesco">
+              <option value="Padre">Padre</option>
+              <option value="Madre">Madre</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="mostrarOtroParentesco">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Especifique otro parentesco"
+              formControlName="otroParentesco" inputmode="text"
+              oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')"
+              pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras permitidas">
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+      </div>
+
+
+
+      <div class="section">
+        <h3>Consentimiento</h3>
+        <div class="section-content">
+          <div class="photo-section">
+            <button type="button" (click)="mostrarConsentimiento()" class="btnmos">
+              {{ mostrarImagen ? 'Ocultar Consentimiento' : 'Mostrar Consentimiento' }}
+            </button>
+
+            <!-- AÑADE AQUÍ -->
+            <div class="row">
+              <div class="col">
+                <label for="consentimientoFile">Seleccionar archivo de consentimiento:</label>
+                <input type="file" id="consentimientoFile" (change)="onFileSelected($event)" accept="image/*">
+              </div>
+            </div>
+            <!-- FIN -->
+
+            <div *ngIf="mostrarImagen && madreConsentimientoUrl" class="image-container">
+              <img [src]="madreConsentimientoUrl" alt="Consentimiento" class="consent-image">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Botones finales -->
+      <div class="botones" style="margin-top: 32px;">
+        
+          <button type="button" class="btnre" (click)="regresar()">Regresar</button>
+        
+          <button type="submit" class="btnac" >{{ madreExistenteId ? 'ACTUALIZAR' : 'REGISTRAR' }}</button>
+        
+        
+      </div>
+    </div>
+
+
+  </form>
+
+</body>
+
+</html>

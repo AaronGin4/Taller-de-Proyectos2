@@ -1,0 +1,283 @@
+/* 📌 Diseño del formulario */
+form {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 📌 Campos de entrada */
+input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #0ca789;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Evita que el padding afecte el tamaño */
+}
+input[type="text"],
+input[type="date"] {
+    border: 2px solid #0ca789;
+    padding: 10px;
+    width: 100%;
+    min-width: 200px; /* Evita inputs demasiado pequeños */
+}
+
+h3{
+    color: #1727da;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+/* 📌 Contenedor de botones de acción */
+button{
+width: 150px;
+height: 50px;
+border: none; 
+padding: 10px 10px; 
+cursor: pointer; 
+border-radius: 10px; 
+font-weight: bold;
+font-size: large;
+}
+.buttons-container {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-bottom: 32px;
+}
+/* 📌 Botones de acción */
+.btngua {
+  background:  #28a745; 
+  color: white;
+}
+.btngua:hover {
+  background-color: #6bd48b; 
+  border: 3px solid #28a745;
+  color: black;
+}
+.btnreg {
+  background:  #040ab2; 
+  color: white;
+}
+.btnreg:hover {
+  background-color: #4163e8; 
+  border: 3px solid #040ab2;
+  color: black;
+} 
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+
+.btn-nueva-enfermedad {
+    width: 260px;
+  background:  #fd7e14; 
+  color: white;
+}
+.btn-nueva-enfermedad:hover {
+  background-color: #ffb067; 
+  border: 3px solid #fd7e14;
+  color: black;
+} 
+
+.btn-quitar {
+  background:  #dc3545; 
+  color: white;
+}
+.btn-quitar:hover {
+  background-color: #e97a85; 
+  border: 3px solid #dc3545;
+  color: black;
+} 
+
+/* 📌 Diseño de filas y columnas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;    
+}
+
+.col {
+    flex: 1;
+    min-width: 250px; /* Evita que las columnas sean demasiado pequeñas */
+    padding: 10px;
+}
+
+/* 📌 Contenedor de selección de género */
+.gender-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-guardar {
+    background: #303f9f;
+}
+h2 {
+    text-align: center;
+    color: #0ca789;
+    font-size: 25px;
+    font-weight: bold;
+}
+  
+.fondo-verde {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .fondo-rojo {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .fondo-morado {
+    background-color: #e6e0f8;
+    color: #4b0082;
+  }
+  
+  .fondo-negro {
+    background-color: #d6d8d9;
+    color: #000;
+  }
+
+/* Nuevos estilos propuestos */
+
+.form-card {
+    background-image: url('../../assets/fondo.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /* Fondo fijo */
+    background-color: #fff; /* Mantiene el fondo blanco detrás del formulario */
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-divider {
+    margin: 40px 0 24px 0;
+    border: none;
+    border-top: 2px solid #009688;
+    width: 100%;
+}
+
+.enfermedades-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.enfermedad-categoria.card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    padding: 18px 16px;
+    min-width: 220px;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+
+
+
+
+
+/* Modal mejorado */
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    min-width: 320px;
+    max-width: 90vw;
+    position: relative;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+    color: #e53935;
+    cursor: pointer;
+}
+
+.texto-error {
+    color: #e53935;
+    font-weight: bold;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.enfermedad-select-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.btn-mas {
+  background-color: #43a047;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-mas:hover {
+  background-color: #2e7031;
+}
+.enfermedades-agregadas-card {
+  background: #f1f8e9;
+  border: 1px solid #c5e1a5;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 24px auto 0 auto;
+  max-width: 600px;
+}
+.enfermedades-agregadas-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.enfermedades-agregadas-card li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+
+
