@@ -14,30 +14,25 @@ import java.util.Optional;
 @RequestMapping("/paseDeVisita")
 public class PaseDeVisitaController {
 
-    private final PaseDeVisitaService paseDeVisitaService; // Declaración correcta
+    private final PaseDeVisitaService paseDeVisitaService;
 
     @Autowired
     public PaseDeVisitaController(PaseDeVisitaService paseDeVisitaService) {
         this.paseDeVisitaService = paseDeVisitaService;
     }
 
-    // Endpoint para crear un nuevo pase de visita
-    // POST /api/pases-de-visita
     @PostMapping
     public ResponseEntity<PaseDeVisita> createPaseDeVisita(@RequestBody PaseDeVisita paseDeVisita) {
-        PaseDeVisita savedPaseDeVisita = paseDeVisitaService.savePaseDeVisita(paseDeVisita); // Llamada correcta
+        PaseDeVisita savedPaseDeVisita = paseDeVisitaService.savePaseDeVisita(paseDeVisita);
         return new ResponseEntity<>(savedPaseDeVisita, HttpStatus.CREATED);
     }
 
-    // Endpoint para obtener un pase de visita por su ID
-    // GET /api/pases-de-visita/{id}
     @GetMapping("/{id}")
     public ResponseEntity<PaseDeVisita> getPaseDeVisitaById(@PathVariable Integer id) {
-        Optional<PaseDeVisita> paseDeVisita = paseDeVisitaService.getPaseDeVisitaById(id); // Llamada correcta
+        Optional<PaseDeVisita> paseDeVisita = paseDeVisitaService.getPaseDeVisitaById(id);
         return paseDeVisita.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    // Endpoint para obtener pases por paciente
     @GetMapping("/paciente/{pacienteId}")
     public ResponseEntity<List<PaseDeVisita>> getByPacienteId(
             @PathVariable String pacienteId
@@ -50,20 +45,14 @@ public class PaseDeVisitaController {
         Optional<PaseDeVisita> pase = paseDeVisitaService.findUltimoPaseByPacienteId(pacienteId);
         return pase.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-    // Endpoint para obtener todos los pases de visita
-    // GET /api/pases-de-visita
+
     @GetMapping
     public ResponseEntity<List<PaseDeVisita>> getAllPasesDeVisita() {
-        // CORREGIDO: Se usa paseDeVisitaService en lugar de paseDeDeVisitaService
         List<PaseDeVisita> pasesDeVisita = paseDeVisitaService.getAllPasesDeVisita();
         return ResponseEntity.ok(pasesDeVisita);
     }
-
-    // Endpoint para actualizar un pase de visita existente
-    // PUT /api/pases-de-visita/{id}
     @PutMapping("/{id}")
     public ResponseEntity<PaseDeVisita> updatePaseDeVisita(@PathVariable Integer id, @RequestBody PaseDeVisita paseDeVisitaDetails) {
-        // CORREGIDO: Se usa paseDeVisitaService en lugar de paseDeDeVisitaService
         Optional<PaseDeVisita> optionalPaseDeVisita = paseDeVisitaService.getPaseDeVisitaById(id);
 
         if (optionalPaseDeVisita.isPresent()) {
@@ -84,7 +73,6 @@ public class PaseDeVisitaController {
             existingPaseDeVisita.setPaciente(paseDeVisitaDetails.getPaciente());
             existingPaseDeVisita.setCuna(paseDeVisitaDetails.getCuna());
 
-            // CORREGIDO: Se usa paseDeVisitaService en lugar de paseDeDeVisitaService
             PaseDeVisita updatedPaseDeVisita = paseDeVisitaService.savePaseDeVisita(existingPaseDeVisita);
             return ResponseEntity.ok(updatedPaseDeVisita);
         } else {
@@ -92,15 +80,12 @@ public class PaseDeVisitaController {
         }
     }
 
-    // Endpoint para eliminar un pase de visita por su ID
-    // DELETE /api/pases-de-visita/{id}
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePaseDeVisita(@PathVariable Integer id) {
-        // CORREGIDO: Se usa paseDeVisitaService en lugar de paseDeDeVisitaService
         Optional<PaseDeVisita> optionalPaseDeVisita = paseDeVisitaService.getPaseDeVisitaById(id);
 
         if (optionalPaseDeVisita.isPresent()) {
-            // CORREGIDO: Se usa paseDeVisitaService en lugar de paseDeDeVisitaService
             paseDeVisitaService.deletePaseDeVisita(id);
             return ResponseEntity.noContent().build();
         } else {
@@ -108,13 +93,11 @@ public class PaseDeVisitaController {
         }
     }
 
-    // Endpoint para obtener pases de visita por el ID del Paciente
-    // GET /api/pases-de-visita/by-paciente/{pacienteId}
+
     @GetMapping("/where/{pacienteId}")
     public ResponseEntity<List<PaseDeVisita>> getPasesDeVisitaByPacienteId(@PathVariable String pacienteId) {
-        PaseDeVisitaService service = paseDeVisitaService; // Puedes crear una variable local si quieres, pero no es necesario
-        List<PaseDeVisita> pasesDeVisita = service.findPasesDeVisitaByPacienteId(pacienteId); // Llamada correcta usando la variable inyectada
-
+        PaseDeVisitaService service = paseDeVisitaService;
+        List<PaseDeVisita> pasesDeVisita = service.findPasesDeVisitaByPacienteId(pacienteId);
         if (pasesDeVisita.isEmpty()) {
             return ResponseEntity.ok(pasesDeVisita);
         } else {
