@@ -23,26 +23,24 @@ public class PacienteController {
         this.pacienteService = pacienteService;
     }
 
-    // ... (endpoints existentes para createPaciente, getPacienteById, getAllPacientes, updatePaciente, deletePaciente) ...
-
-    // Nuevo Endpoint para obtener pacientes por estado "Paciente en atención "
-    // GET /api/pacientes/estado/en-atencion
     @GetMapping("/estado/en-atencion")
     public ResponseEntity<List<Paciente>> getPacientesEnAtencion() {
-        String estadoBuscado = "Paciente en atención "; // Definimos el estado específico
+        String estadoBuscado = "Paciente en atención ";
         List<Paciente> pacientesEnAtencion = pacienteService.findPacientesByEstado(estadoBuscado);
 
         if (pacientesEnAtencion.isEmpty()) {
-            // Si la lista está vacía, podrías retornar 404 Not Found o 200 OK con lista vacía
-            // Retornar 200 OK con lista vacía es común para búsquedas sin resultados.
-            return ResponseEntity.ok(pacientesEnAtencion); // Retorna 200 OK con una lista vacía
-            // Alternativamente podrías retornar: return ResponseEntity.notFound().build();
+
+            return ResponseEntity.ok(pacientesEnAtencion);
         } else {
-            return ResponseEntity.ok(pacientesEnAtencion); // Retorna 200 OK con la lista de pacientes
+            return ResponseEntity.ok(pacientesEnAtencion);
         }
     }
-
     @PatchMapping("/{id}/area")
+    public ResponseEntity<Paciente> updateArea(@PathVariable String id, @RequestBody Map<String, String> area) {
+        return ResponseEntity.ok(pacienteService.actualizarArea(id, area.get("area")));
+    }
+
+   /* @PatchMapping("/{id}/area")
     public ResponseEntity<Paciente> updateArea(
             @PathVariable String id,
             @RequestBody Map<String, String> areaUpdate) {
@@ -51,7 +49,7 @@ public class PacienteController {
         Paciente pacienteActualizado = pacienteService.actualizarArea(id, nuevaArea);
         return ResponseEntity.ok(pacienteActualizado);
     }
-    // Métodos existentes (sin cambios):
+*/
 
     @PostMapping
     public ResponseEntity<Paciente> createPaciente(@RequestBody Paciente paciente) {
