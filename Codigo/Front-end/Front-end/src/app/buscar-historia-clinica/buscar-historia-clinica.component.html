@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="buscar-historia-clinica.component.css">
+</head>
+
+<body>
+    <form [formGroup]="form" class="form-card">
+
+        <h2>BUSCAR FILIACIÓN DE PACIENTE</h2>
+
+        <!-- Sección: Búsqueda -->
+        <div class="section">
+            <h3>Búsqueda</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="search-bar">
+                        <input type="text" [formControl]="formBusqueda" (input)="onInputCuna($event)"
+                            placeholder="Buscar por: Historia Clínica, DNI Madre (8 dígitos) o Cuna (C-XX o I-XX)" />
+                        <button type="button" class="btnbus" (click)="buscarPaciente()">BUSCAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Sección: Pacientes recientes -->
+        <div class="section">
+            <h3>PACIENTES RECIENTES</h3>
+            <div class="recent-patients" *ngIf="pacientesRecientes.length > 0">
+                <div class="patient-list">
+                    <div class="patient-item" *ngFor="let paciente of pacientesRecientes"
+                        (click)="seleccionarPaciente(paciente)">
+                        <div class="patient-id">{{ paciente.idPaciente }}</div>
+                        <div class="patient-name">
+                            {{ paciente.apellidoPaternoPaciente }} {{ paciente.apellidoMaternoPaciente }}, {{
+                            paciente.nombrePaciente }}
+                        </div>
+                        <div class="patient-date">
+                            Ingreso: {{ paciente.fechaIngreso | date:'dd/MM/yyyy' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Sección: Datos de filiación seleccionada -->
+        <div class="section">
+            <h3>Datos de Filiación Seleccionada</h3>
+            <div class="row">
+                <div class="col">
+                    <label for="historia-clinica">Número de Filiación:</label>
+                    <input type="text" id="historia-clinica" [value]="form.get('idPaciente')?.value" readonly>
+                </div>
+                <div class="col">
+                    <label for="dni-madre">DNI de la Madre:</label>
+                    <input type="text" id="dniMadre" formControlName="dniMadre" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="nombres">Nombres del Recién Nacido:</label>
+                    <input type="text" id="nombre" formControlName="nombrePaciente" readonly>
+                </div>
+                <div class="col">
+                    <label for="apellido-paterno">Apellido Paterno:</label>
+                    <input type="text" id="apellido-paterno" formControlName="apellidoPaternoPaciente" readonly>
+                </div>
+                <div class="col">
+                    <label for="apellido-materno">Apellido Materno:</label>
+                    <input type="text" id="apellido-materno" formControlName="apellidoMaternoPaciente" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                    <input type="text" id="fecha-nacimiento" formControlName="fechaNacimientoPaciente" readonly>
+                </div>
+                <div class="col">
+                    <label for="genero">Género:</label>
+                    <input type="text" id="genero" formControlName="generoPaciente" readonly>
+                </div>
+                <div class="col" formGroupName="cuna">
+                    <label for="cuna-registrada">Cuna Registrada:</label>
+                    <input type="text" id="cuna-registrada" formControlName="idCuna" readonly>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- Sección: Botones -->
+        <div class="row buttons" style="margin-top: 32px;">
+            <div class="col">
+                <button type="button" class="btnre" (click)="regresar()">REGRESAR</button>
+            </div>
+            <div class="col">
+                <button class="btnfiliacion" type="button" (click)="verHistoria()">VER FILIACIÓN</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

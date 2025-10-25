@@ -1,0 +1,269 @@
+<form [formGroup]="form" (ngSubmit)="create()" class="form-card">
+
+  <h2>FILIACIÓN DE PACIENTE RECIÉN NACIDO</h2>
+
+  <!-- Sección: Filiación -->
+  <div class="section">
+    <h3>Historia Clinica</h3>
+    <div class="row">
+      <div class="col">
+        <label>Cuna:</label>
+        <select formControlName="idCuna">
+          <option *ngFor="let cuna of listaCunas" [value]="cuna.idCuna"
+            [disabled]="cuna.estadoCuna === 'No Disponible'">
+            {{ cuna.idCuna }} - {{ cuna.estadoCuna }}
+          </option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="nro_historia">Numero de Historia Clinica:</label>
+        <input id="idPaciente" class="form-control" formControlName="idPaciente" type="text" inputmode="numeric"
+          pattern="^\d+$" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+
+      </div>
+      <div class="col">
+        <label for="dniMadre">DNI de la Madre:</label>
+        <input id="dniMadre" class="form-control" formControlName="dniMadre" maxlength="8" pattern="^\d{8}$"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,8)" required type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="prefactura">Numero de Prefactura: </label>
+        <input id="numeroPreFactura" class="form-control" formControlName="numeroPreFactura" type="text"
+          inputmode="numeric" pattern="^\d+$" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+
+      </div>
+      <div class="col">
+        <label form="telefono">Telefono de la Madre:</label>
+        <input type="text" id="telefono" formControlName="telefonoPaciente" maxlength="9" pattern="^\d{9}$"
+          inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,9)" required />
+      </div>
+      <div class="col">
+        <label for="area">Área:</label>
+        <select id="area" name="area" formControlName="area" class="form-control">
+          <option value="UCIN">UCIN</option>
+          <option value="UCIN Quirúrgico"> UCIN Quirúrgico</option>
+          <option value="Engorde">Engorde</option>
+          <option value="Intermedio">Intermedio</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="nombres">Nombres del Recién Nacido:</label>
+        <input type="text" id="nombrePaciente" class="form-control" formControlName="nombrePaciente">
+      </div>
+      <div class="col">
+        <label for="apellido_paterno">Apellido Paterno del Recién Nacido:</label>
+        <input type="text" class="form-control" id="apellido_paterno" formControlName="apellidoPaternoPaciente"
+          inputmode="text" oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')"
+          pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras permitidas">
+      </div>
+      <div class="col">
+        <label for="apellido_materno">Apellido Materno del Recién Nacido:</label>
+        <input type="text" id="apellido_materno" class="form-control" formControlName="apellidoMaternoPaciente"
+          inputmode="text" oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')"
+          pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras permitidas">
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- Sección: Datos de nacimiento -->
+  <div class="section">
+    <h3>Datos de Nacimiento</h3>
+    <div class="row">
+      <div class="col">
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" class="form-control" formControlName="fechaNacimientoPaciente">
+      </div>
+      <div class="col">
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" formControlName="generoPaciente" class="form-control">
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="peso_nacimiento">Peso de Nacimiento (gr):</label>
+        <input type="number" formControlName="pesoNacimientoPaciente" (input)="actualizarDetallePeso()" />
+      </div>
+      <div class="col">
+        <label for="edad_gestacional">Edad Gestacional (semanas):</label>
+        <input type="number" formControlName="edadGestacionalPaciente" (input)="actualizarDetalleEdad()" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="detalle_peso">Detalle Peso:</label>
+        <input type="text" formControlName="detallePesoNacimientoPaciente" readonly [ngClass]="colorDetallePeso" />
+      </div>
+      <div class="col">
+        <label for="detalle_edad">Detalle Edad Gestacional:</label>
+        <input type="text" formControlName="detalleEdadGestacionalPaciente" readonly [ngClass]="colorDetalleEdad" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="tallanacimiento">Talla Nacimiento (cm):</label>
+        <input type="number" formControlName="tallaNacimientoPaciente">
+      </div>
+      <div class="col">
+        <label for="perimetroCefalico">Perímetro Cefálico (cm)</label>
+        <input type="number" formControlName="perimetroCefalico">
+      </div>
+    </div>
+  </div>
+
+
+  <hr class="section-divider" />
+
+  <!-- Sección: Diagnóstico -->
+  <div class="section">
+    <h3>Diagnóstico</h3>
+    <div class="row">
+      <div class="col-12">
+        <div formGroupName="diagnosticoPaciente">
+          <label for="observacion">Observación del Recién Nacido:</label>
+          <textarea id="observacion" formControlName="observacionEnfermedad"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- Sección: Enfermedades -->
+  <div class="section">
+    <h3>Enfermedades del Paciente</h3>
+
+    <!-- Modal para la creación de enfermedad -->
+    <div class="modal" *ngIf="mostrarModalEnfermedad">
+      <div class="modal-content">
+        <span class="close" (click)="cerrarModal()">&times;</span>
+        <h2>Crear Enfermedad</h2>
+        <form [formGroup]="enfermedadForm">
+          <input formControlName="nombreEnfermedad" placeholder="Nombre de la enfermedad" />
+          <select formControlName="categoriaEnfermedad">
+            <option *ngFor="let categoria of categoriasDisponibles" [value]="categoria">{{ categoria }}</option>
+          </select>
+          <button type="button" class="btngua" (click)="guardarEnfermedadDesdeModal()">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="enfermedades-grid">
+      <div class="enfermedad-categoria card">
+        <label>Gastrointestinales:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'gastrointestinales')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['gastrointestinales']" [ngValue]="enf">{{
+              enf.nombreEnfermedad }}</option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('gastrointestinales')">+</button>
+        </div>
+      </div>
+      <div class="enfermedad-categoria card">
+        <label>Respiratorios:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'respiratorios')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['respiratorios']" [ngValue]="enf">{{
+              enf.nombreEnfermedad }}</option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('respiratorios')">+</button>
+        </div>
+      </div>
+      <div class="enfermedad-categoria card">
+        <label>Infecciosos:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'infecciosos')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['infecciosos']" [ngValue]="enf">{{ enf.nombreEnfermedad
+              }}</option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('infecciosos')">+</button>
+        </div>
+      </div>
+      <div class="enfermedad-categoria card">
+        <label>Hematológico:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'hematologico')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['hematologico']" [ngValue]="enf">{{ enf.nombreEnfermedad
+              }}</option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('hematologico')">+</button>
+        </div>
+      </div>
+
+      <div class="enfermedad-categoria card">
+        <label>Cardiológico:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'cardiologico')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['cardiologico']" [ngValue]="enf">{{ enf.nombreEnfermedad
+              }}</option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('cardiologico')">+</button>
+        </div>
+      </div>
+      <div class="enfermedad-categoria card">
+        <label>Metabólicos:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'metabolicos')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['metabolicos']" [ngValue]="enf">{{ enf.nombreEnfermedad
+              }}</option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('metabolicos')">+</button>
+        </div>
+      </div>
+
+      <div class="enfermedad-categoria card">
+        <label>Otros:</label>
+        <div class="enfermedad-select-row">
+          <select (change)="onSeleccionarEnfermedad($event, 'otros')">
+            <option [ngValue]="null">Seleccione...</option>
+            <option *ngFor="let enf of enfermedadesPorCategoria['otros']" [ngValue]="enf">{{ enf.nombreEnfermedad }}
+            </option>
+          </select>
+          <button type="button" class="btn-mas" (click)="agregarEnfermedad('otros')">+</button>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- Cuadro de enfermedades agregadas -->
+    <div class="enfermedades-agregadas-card" *ngIf="enfermedadesAgregadas.length > 0">
+      <h4>Enfermedades agregadas:</h4>
+      <ul>
+        <li *ngFor="let enf of enfermedadesAgregadas; let i = index">
+          {{ enf.categoria | titlecase }} - {{ enf.nombre }}
+          <button type="button" class="btn-quitar" (click)="quitarEnfermedad(i)">Quitar</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="buttons-container">
+      <button type="button" class="btn-nueva-enfermedad" (click)="abrirModal()">Agregar nueva enfermedad</button>
+    </div>
+  </div>
+
+  <!-- Botones finales -->
+  <div class="row buttons" style="margin-top: 32px;">
+    <button type="button" class="btnre" (click)="regresar()">Regresar</button>
+    <button type="submit" class="btnreg">Registrar</button>
+
+  </div>
+  <div *ngIf="form.invalid && form.touched" class="texto-error">
+    Por favor completa todos los campos requeridos.
+  </div>
+</form>

@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { AlmacenGuard } from './almacen.guard';
 import { UsuariosGuard } from './usuarios.guard';
 import { PacientesGuard } from './pacientes.guard';
+import DispensacionComponent from './dispensacion/dispensacion.component';
 
 export const routes: Routes = [
    {
@@ -54,6 +55,11 @@ export const routes: Routes = [
       loadComponent: () => import('./leches-disponibles/leches-disponibles.component').then(m => m.LechesDisponiblesComponent),
       canActivate: [AlmacenGuard]
     },
+    { 
+    path: 'dispensacion/:idPaciente/:idCuna', // <-- Parámetros definidos en la ruta
+    component: DispensacionComponent 
+    ,canActivate: [PacientesGuard]
+  },
     {
       path: 'ver-pase-de-visita',
       loadComponent: () => import('./ver-pase-de-visita/ver-pase-de-visita.component')

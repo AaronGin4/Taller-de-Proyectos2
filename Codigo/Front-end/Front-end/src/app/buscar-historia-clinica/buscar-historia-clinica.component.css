@@ -1,0 +1,234 @@
+/* 📌 Diseño del formulario */
+form {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+/* 📌 Campos de entrada */
+input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #0ca789;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background: #fafbfc;
+}
+input[type="text"],
+input[type="date"] {
+    border: 2px solid #0ca789;
+    padding: 10px;
+    width: 100%;
+    min-width: 200px; /* Evita inputs demasiado pequeños */
+}
+
+/* 📌 Etiquetas */
+label {
+    margin-bottom: 4px;
+    display: block;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+/* 📌 Botones */
+button{
+    width: 150px;
+    height: 50px;
+    border: none; 
+    padding: 10px 10px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    font-weight: bold;
+    font-size: large;
+}
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+.btnfiliacion {
+    margin-left: 55%;
+  background:  #20c997; 
+  color: white;
+}
+.btnfiliacion:hover {
+  background-color: #6bddba; 
+  border: 3px solid #20c997;
+  color: black;
+} 
+
+.btnbus {
+    margin-top: 10px;
+    margin-left: 79%;
+    background:  #007bff; 
+    color: white;
+}
+.btnbus:hover {
+  background-color: #5aa3ff; 
+  border: 3px solid #007bff;
+  color: black;
+} 
+/* 📌 Diseño de filas y columnas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;    
+}
+
+.col {
+    flex: 1;
+    min-width: 250px; /* Evita que las columnas sean demasiado pequeñas */
+    padding: 10px;
+}
+
+/* 📌 Contenedor de selección de género */
+.gender-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 📌 Contenedor de enfermedades y botón de agregar */
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+h2 {
+    text-align: center;
+    color: #0bac99;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+}
+  
+h3 {
+    color: #1727da;
+    font-weight: bold;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+  
+  .fondo-rojo {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .fondo-morado {
+    background-color: #e6e0f8;
+    color: #4b0082;
+  }
+  
+  .fondo-negro {
+    background-color: #d6d8d9;
+    color: #000;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 70%; /* Aumenta el ancho del modal */
+    max-width: 800px; /* Límite máximo opcional */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  /* Estilos para la lista de pacientes recientes */
+.recent-patients {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+    border: 2px solid teal;
+    max-height: 260px;      /* Altura máxima visible */
+    overflow-y: auto;       /* Scroll vertical si hay muchos pacientes */
+}
+
+.recent-patients h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.patient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.patient-item {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-left: 4px solid teal;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.patient-item:hover {
+    background-color: #e8f4fc;
+}
+
+.patient-id {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.patient-name {
+    color: #34495e;
+    margin: 5px 0;
+}
+
+.patient-date {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.form-card {
+    background-image: url('../../assets/fondo.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
