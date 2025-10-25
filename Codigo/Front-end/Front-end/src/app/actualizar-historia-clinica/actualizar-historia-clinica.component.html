@@ -1,0 +1,340 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="actualizar-historia-clinica.component.css">
+</head>
+<!-- Modal para la creación de enfermedad -->
+<div class="modal" *ngIf="mostrarModalEnfermedad">
+  <div class="modal-content">
+    <span class="close" (click)="cerrarModal()">&times;</span>
+    <h2>Crear Enfermedad</h2>
+    <form [formGroup]="enfermedadForm">
+      <input formControlName="nombreEnfermedad" placeholder="Nombre de la enfermedad" />
+      <select formControlName="categoriaEnfermedad">
+        <option *ngFor="let categoria of categoriasDisponibles" [value]="categoria">{{ categoria }}</option>
+      </select>
+      <button type="button" (click)="guardarEnfermedadDesdeModal()">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<body>
+
+
+  <form [formGroup]="historiaForm" (ngSubmit)="actualizarHistoriaClinica()" class="form-card">
+
+    <h2>ACTUALIZAR HISTORIA CLÍNICA</h2>
+
+    <!-- SECCIÓN: DATOS DEL PACIENTE -->
+    <div class="section">
+      <h3>Datos del Paciente</h3>
+      <div class="row">
+        <div class="col">
+          <label>N° Historia Clinica:</label>
+          <input formControlName="idPaciente" type="text" readonly />
+        </div>
+        <div class="col">
+          <label>Nombre:</label>
+          <input formControlName="nombrePaciente" type="text" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Apellido Paterno:</label>
+          <input formControlName="apellidoPaternoPaciente" type="text" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas" />
+        </div>
+        <div class="col">
+          <label>Apellido Materno:</label>
+          <input formControlName="apellidoMaternoPaciente" type="text" inputmode="text"
+            oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '')" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+            title="Solo letras permitidas" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Fecha de Nacimiento:</label>
+          <input formControlName="fechaNacimientoPaciente" type="date" />
+        </div>
+        <div class="col">
+          <label>Género:</label>
+          <select formControlName="generoPaciente">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Área:</label>
+          <select formControlName="area">
+            <option value="UCIN">UCIN</option>
+            <option value="UCIN Quirúrgico">UCIN Quirúrgico</option>
+            <option value="Engorde">Engorde</option>
+            <option value="Intermedio">Intermedio</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Estado del paciente:</label>
+          <select formControlName="estado">
+            <option value="Paciente en atención">Paciente en atención</option>
+            <option value="Paciente en alta">Paciente en alta</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>N° de Prefactura </label>
+          <input formControlName="numeroPreFactura" type="text" inputmode="numeric" />
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- SECCIÓN: DATOS DE NACIMIENTO -->
+    <div class="section">
+      <h3>Datos de Nacimiento</h3>
+      <div class="row">
+        <div class="col">
+          <label>Peso al nacer (gr):</label>
+          <input formControlName="pesoNacimientoPaciente" type="number" min="0" (input)="actualizarDetallePeso()" />
+        </div>
+        <div class="col">
+          <label>Edad gestacional (semanas):</label>
+          <input formControlName="edadGestacionalPaciente" type="number" min="0" (input)="actualizarDetalleEdad()" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Detalle peso nacimiento:</label>
+          <input formControlName="detallePesoNacimientoPaciente" type="text" [ngClass]="colorDetallePeso" readonly />
+        </div>
+        <div class="col">
+          <label>Detalle edad gestacional:</label>
+          <input formControlName="detalleEdadGestacionalPaciente" type="text" [ngClass]="colorDetalleEdad" readonly />
+        </div>
+      </div>
+      <div class="row">
+      
+        <div class="col">
+          <label>Perímetro Cefálico (cm)</label>
+          <input formControlName="perimetroCefalico" type="number" min="0" />
+        </div>
+        <div class="col">
+          <label>Perimetro Cefalico de Salida del RN (cm):</label>
+          <input formControlName="perimetroCefalicoSalida" type="number" min="0" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Talla al nacer (cm):</label>
+          <input formControlName="tallaNacimientoPaciente" type="number" min="0" />
+        </div>
+        <div class="col">
+          <label>Talla Salida del RN (cm):</label>
+          <input formControlName="tallaSalidaPaciente" type="number" min="0" />
+        </div>
+        <div class="col">
+          <label>Peso al alta (gr):</label>
+          <input formControlName="pesoSalidaPaciente" type="number" min="0" />
+        </div>
+
+        
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- SECCIÓN: DATOS DE LA MADRE -->
+    <div class="section">
+      <h3>Datos de la Madre</h3>
+      <div class="row">
+        <div class="col">
+          <label>DNI de la madre:</label>
+          <input formControlName="dniMadre" type="text" maxlength="8" />
+        </div>
+        <div class="col">
+          <label>Telefono Madre</label>
+          <input formControlName="telefonoPaciente" type="text" inputmode="numeric" />
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- SECCIÓN: DATOS DE INTERNACIÓN -->
+    <div class="section">
+      <h3>Datos de Internación</h3>
+      <div class="row">
+        <div class="col">
+          <label>Cuna:</label>
+          <select formControlName="idCuna">
+            <option *ngFor="let cuna of listaCunas" [value]="cuna.idCuna"
+              [disabled]="cuna.estadoCuna === 'No Disponible'">
+              {{ cuna.idCuna }} - {{ cuna.estadoCuna }}
+            </option>
+          </select>
+        </div>
+        <div class="col">
+          <label>Estado de la Cuna:</label>
+          <input formControlName="estadoCuna" type="text" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Fecha de ingreso:</label>
+          <input formControlName="fechaIngreso" type="date" readonly />
+        </div>
+        <div class="col">
+          <label>Fecha de salida:</label>
+          <input formControlName="fechaSalida" type="date" readonly />
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- SECCIÓN: ENFERMEDADES DEL PACIENTE -->
+    <div class="section">
+      <h3>Enfermedades del Paciente</h3>
+
+      <!-- Modal para la creación de enfermedad -->
+      <div class="modal" *ngIf="mostrarModalEnfermedad">
+        <div class="modal-content">
+          <span class="close" (click)="cerrarModal()">&times;</span>
+          <h2>Crear Enfermedad</h2>
+          <form [formGroup]="enfermedadForm">
+            <input formControlName="nombreEnfermedad" placeholder="Nombre de la enfermedad" />
+            <select formControlName="categoriaEnfermedad">
+              <option *ngFor="let categoria of categoriasDisponibles" [value]="categoria">{{ categoria }}</option>
+            </select>
+            <button type="button" (click)="guardarEnfermedadDesdeModal()">Guardar</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="enfermedades-grid">
+        <div class="enfermedad-categoria card">
+          <label>Gastrointestinales:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'gastrointestinales')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['gastrointestinales']" [ngValue]="enf">{{
+                enf.nombreEnfermedad }}</option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('gastrointestinales')">+</button>
+          </div>
+        </div>
+        <div class="enfermedad-categoria card">
+          <label>Respiratorios:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'respiratorios')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['respiratorios']" [ngValue]="enf">{{
+                enf.nombreEnfermedad }}</option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('respiratorios')">+</button>
+          </div>
+        </div>
+        <div class="enfermedad-categoria card">
+          <label>Infecciosos:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'infecciosos')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['infecciosos']" [ngValue]="enf">{{
+                enf.nombreEnfermedad
+                }}</option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('infecciosos')">+</button>
+          </div>
+        </div>
+        <div class="enfermedad-categoria card">
+          <label>Hematológico:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'hematologico')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['hematologico']" [ngValue]="enf">{{
+                enf.nombreEnfermedad
+                }}</option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('hematologico')">+</button>
+          </div>
+        </div>
+
+        <div class="enfermedad-categoria card">
+          <label>Cardiológico:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'cardiologico')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['cardiologico']" [ngValue]="enf">{{
+                enf.nombreEnfermedad
+                }}</option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('cardiologico')">+</button>
+          </div>
+        </div>
+        <div class="enfermedad-categoria card">
+          <label>Metabólicos:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'metabolicos')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['metabolicos']" [ngValue]="enf">{{
+                enf.nombreEnfermedad
+                }}</option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('metabolicos')">+</button>
+          </div>
+        </div>
+
+        <div class="enfermedad-categoria card">
+          <label>Otros:</label>
+          <div class="enfermedad-select-row">
+            <select (change)="onSeleccionarEnfermedad($event, 'otros')">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let enf of enfermedadesPorCategoria['otros']" [ngValue]="enf">{{ enf.nombreEnfermedad }}
+              </option>
+            </select>
+            <button type="button" class="btn-mas" (click)="agregarEnfermedad('otros')">+</button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Cuadro de enfermedades agregadas -->
+      <div class="enfermedades-agregadas-card" *ngIf="enfermedadesAgregadas.length > 0">
+        <h4>Enfermedades agregadas:</h4>
+        <ul>
+          <li *ngFor="let enf of enfermedadesAgregadas">
+            {{ enf.categoria | titlecase }} - {{ enf.nombre }}
+            <button type="button" class="btn-quitar" (click)="quitarEnfermedadPorId(enf.id)">Quitar</button>
+          </li>
+        </ul>
+      </div>
+      <div class="buttons-container">
+        <button type="button" class="btn-nueva-enfermedad" (click)="abrirModal()">Agregar nueva enfermedad</button>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- SECCIÓN: OBSERVACIÓN DE ENFERMEDAD -->
+    <div class="section">
+      <h3>Observación de Enfermedad</h3>
+      <div class="row">
+        <div class="col">
+          <label>Observación de Enfermedad:</label>
+          <textarea formControlName="observacionEnfermedad" rows="2"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button type="button" class="btnre" (click)="regresar()">Regresar</button>
+
+      <button type="submit" class="btnac">Actualizar</button>
+    </div>
+  </form>
+</body>
+
+</html>

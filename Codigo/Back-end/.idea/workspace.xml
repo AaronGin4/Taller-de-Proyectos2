@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PacienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/buscar-historia-clinica/buscar-historia-clinica.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/buscar-historia-clinica/buscar-historia-clinica.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/buscar-historia-clinica/buscar-historia-clinica.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/crear-historia-clinica/crear-historia-clinica.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/crear-historia-clinica/crear-historia-clinica.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/crear-historia-clinica/crear-historia-clinica.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/menu-historia/menu-historia.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/menu-historia/menu-historia.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/menu-historia/menu-historia.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../~$2. E8 S3 Registro de Avance.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

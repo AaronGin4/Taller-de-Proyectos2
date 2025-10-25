@@ -1,0 +1,187 @@
+<html>
+
+<body>
+  <form class="form-card">
+    <h2>FILIACIÓN DE PACIENTE RECIÉN NACIDO</h2>
+
+    <!-- Sección: Historia Clínica -->
+    <div class="section">
+      <h3>Historia Clínica</h3>
+      <div class="row">
+        <div class="col">
+          <label for="cuna">Cuna (ID):</label>
+          <input type="text" id="cuna" [value]="paciente?.cuna?.idCuna" readonly />
+        </div>
+        <div class="col">
+          <label for="nro_historia">Número de Historia Clínica:</label>
+          <input type="text" id="nro_historia" [value]="paciente?.idPaciente" readonly />
+        </div>
+        <div class="col">
+          <label for="dni_madre">DNI de la Madre:</label>
+          <input type="text" id="dni_madre" [value]="paciente?.dniMadre" readonly />
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="fecha_ingreso">Desde:</label>
+            <input type="text" id="fecha_ingreso" [value]="paciente?.fechaIngreso | date:'dd/MM/yyyy'" readonly />
+          </div>
+          <div class="col">
+            <label for="fecha_salida">Hasta:</label>
+            <input type="text" id="fecha_salida" [value]="paciente?.fechaSalida | date:'dd/MM/yyyy'" readonly />
+          </div>
+          <div class="col">
+            <label for="telefono">Teléfono de la Madre:</label>
+            <input type="text" id="telefonoPaciente" [value]="paciente?.telefonoPaciente" readonly />
+          </div>
+          <div class="col">
+            <label for="numero_prefactura">Número de Prefactura:</label>
+            <input type="text" id="numero_prefactura" [value]="paciente?.numeroPreFactura" readonly />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="nombres">Nombres del Recién Nacido:</label>
+          <input type="text" id="nombres" [value]="paciente?.nombrePaciente" readonly />
+        </div>
+        <div class="col">
+          <label for="apellido_paterno">Apellido Paterno:</label>
+          <input type="text" id="apellido_paterno" [value]="paciente?.apellidoPaternoPaciente" readonly />
+        </div>
+        <div class="col">
+          <label for="apellido_materno">Apellido Materno:</label>
+          <input type="text" id="apellido_materno" [value]="paciente?.apellidoMaternoPaciente" readonly />
+        </div>
+      </div>
+      <div class="estado" [ngClass]="{
+            'estado-alta': paciente?.estado === 'Paciente en alta',
+            'estado-normal': paciente?.estado !== 'Paciente en alta'
+          }">
+        Estado: {{ paciente?.estado }}
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Datos del Paciente -->
+    <div class="section">
+      <h3>Datos de Nacimiento</h3>
+      <div class="row">
+        <div class="col">
+          <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+          <input type="text" id="fecha_nacimiento" [value]="paciente?.fechaNacimientoPaciente | date:'dd/MM/yyyy'"
+            readonly />
+        </div>
+        <div class="col">
+          <label for="genero">Género:</label>
+          <input type="text" id="genero" [value]="paciente?.generoPaciente" readonly />
+        </div>
+        <div class="col">
+          <label for="area">Área:</label>
+          <input type="text" id="area" [value]="paciente?.area" readonly />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="peso_nacimiento">Peso de Nacimiento (gr):</label>
+        <input type="number" id="peso_nacimiento" [value]="paciente?.pesoNacimientoPaciente" readonly />
+      </div>
+      <div class="col">
+        <label for="edad_gestacional">Edad Gestacional (semanas):</label>
+        <input type="number" id="edad_gestacional" [value]="paciente?.edadGestacionalPaciente" readonly />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="detalle_peso">Detalle Peso:</label>
+        <input type="text" id="detalle_peso" [value]="detallePeso" [ngClass]="colorDetallePeso" readonly />
+      </div>
+      <div class="col">
+        <label for="detalle_edad">Detalle Edad Gestacional:</label>
+        <input type="text" id="detalle_edad" [value]="detalleEdad" [ngClass]="colorDetalleEdad" readonly />
+      </div>
+    </div>
+
+    <div class="row">
+      
+
+      <div class="col">
+        <label for="perimetroCefalico">Perímetro Cefálico (cm)</label>
+        <input type="number" id="perimetroCefalico" [value]="paciente?.perimetroCefalico" readonly />
+      </div>
+      <div class="col">
+        <label for="talla_salida">Perimetro Cefalico de Salida (cm):</label>
+        <input type="number" id="talla_salida" [value]="paciente?.perimetroCefalicoSalida" readonly />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="talla_nacimiento">Talla de Nacimiento (cm):</label>
+        <input type="number" id="talla_nacimiento" [value]="paciente?.tallaNacimientoPaciente" readonly />
+      </div>
+      <div class="col">
+        <label for="talla_salida">Talla de Salida (cm):</label>
+        <input type="number" id="talla_salida" [value]="paciente?.tallaSalidaPaciente" readonly />
+      </div>
+      <div class="col">
+        <label for="peso_salida">Peso de Salida (gr):</label>
+        <input type="number" id="peso_salida" [value]="paciente?.pesoSalidaPaciente" readonly />
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Diagnóstico -->
+    <div class="section">
+      <h3>Diagnóstico</h3>
+      <div class="row">
+        <div class="col-12">
+          <label for="observacion">Observación del Recién Nacido:</label>
+          <textarea id="observacion" [value]="paciente?.diagnosticoPaciente?.observacionEnfermedad" readonly></textarea>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Enfermedades -->
+    <div class="section">
+      <h3>Enfermedades del Paciente</h3>
+      <div *ngIf="cargandoEnfermedades" class="loading-spinner">
+        <i class="fas fa-spinner fa-spin"></i> Cargando enfermedades...
+      </div>
+      <div *ngIf="!cargandoEnfermedades">
+        <div *ngIf="enfermedades.length > 0; else sinEnfermedades">
+          <div class="enfermedad-item" *ngFor="let enfermedad of enfermedades">
+            <div class="enfermedad-header">
+              <span class="enfermedad-nombre">{{ enfermedad.nombreEnfermedad }}</span>
+              <span class="enfermedad-categoria">{{ enfermedad.categoriaEnfermedad }}</span>
+            </div>
+          </div>
+        </div>
+        <ng-template #sinEnfermedades>
+          <p class="no-enfermedades">No se han registrado enfermedades para este paciente</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Sección: Botones -->
+    <div class="botones" style="margin-top: 32px;">
+      <button type="button" class="btnre" (click)="regresar()">Regresar</button>
+      <button type="button" class="btnac" (click)="verActualizarHistoria()">Actualizar</button>
+
+      <button type="button" class="btndar" (click)="darDeAlta()" *ngIf="paciente?.estado !== 'Paciente en alta'">
+        Dar de Alta
+      </button>
+      <button type="button" class="btnrepo" (click)="irReportePaciente()">Reporte</button>
+    </div>
+  </form>
+</body>
+
+</html>

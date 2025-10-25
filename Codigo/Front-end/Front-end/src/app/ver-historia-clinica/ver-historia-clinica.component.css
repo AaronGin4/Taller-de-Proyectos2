@@ -1,0 +1,299 @@
+/* 📌 Diseño del formulario */
+form {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* 📌 Contenedor del formulario */
+.form-card {
+    background-image: url('../../assets/fondo.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+  font-size: 25px;
+    text-align: center;
+    color: #0bac99;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+h3{
+    color: #1727da;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* 📌 Campos de entrada */
+input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #0bac99;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Evita que el padding afecte el tamaño */
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    background: #fafbfc;
+}
+input[type="text"],
+input[type="date"] {
+    border: 2px solid #0bac99;
+    padding: 10px;
+    width: 100%;
+    min-width: 200px;
+}
+.styled-output {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    margin-top: 5px;
+  }
+/* 📌 Botones */
+button{
+    width: 150px;
+    height: 50px;
+    border: none; 
+    padding: 10px 10px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    font-weight: bold;
+    font-size: large;
+}
+
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+
+.btnpro {
+  background:  #6c757d; 
+  color: white;
+}
+.btnpro:hover {
+  background-color: #a0a8af; 
+  border: 3px solid #6c757d;
+  color: black;
+} 
+
+.btnac {
+  background:  #17a2b8; 
+  color: white;
+}
+.btnac:hover {
+  background-color: #5fc7d8; 
+  border: 3px solid #17a2b8;
+  color: black;
+} 
+.btndar {
+  background:  #28a745; 
+  color: white;
+}
+.btndar:hover {
+  background-color: #6bd48b; 
+  border: 3px solid #28a745;
+  color: black;
+} 
+
+.btnrepo {
+  background:  #6610f2; 
+  color: white;
+}
+.btnrepo:hover {
+  background-color: #9a5ff5; 
+  border: 3px solid #6610f2;
+  color: black;
+} 
+
+.botones{
+  display: flex;
+  flex-wrap: wrap, center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+/* 📌 Diseño de filas y columnas */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px; /* Evita que las columnas sean demasiado pequeñas */
+    padding: 10px;
+}
+
+/* 📌 Contenedor de selección de género */
+.gender-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 📌 Contenedor de enfermedades y botón de agregar */
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+/* 📌 Contenedor de nueva enfermedad */
+.nueva-enfermedad-container {
+    background-color: #ffffcc; /* Fondo amarillo claro */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* 📌 Botón para guardar nueva enfermedad */
+
+input.rojo {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+  }
+  
+  input.amarillo {
+    background-color: #fff3cd;
+    border: 1px solid #ffecb5;
+    color: #664d03;
+  }
+  
+  input.verde {
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    color: #0f5132;
+  }
+  .fondo-verde {
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    color: #0f5132;
+  }
+  
+  .fondo-rojo {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+  }
+  
+  .fondo-morado {
+    background-color: #e2d5f4;
+    border: 1px solid #c1a8f0;
+    color: #3c096c;
+  }
+  
+  .fondo-negro {
+    background-color: #d6d6d6;
+    border: 1px solid #444;
+    color: #000;
+  }
+  .estado {
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .estado-alta {
+    color: green;
+  }
+  .estado-normal {
+    color: black;
+  }
+/* Estilos para enfermedades */
+.enfermedad-item {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-left: 4px solid #e74c3c;
+}
+
+.enfermedad-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.enfermedad-nombre {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.enfermedad-categoria {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  background-color: #ecf0f1;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.no-enfermedades {
+  color: #7f8c8d;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 10px;
+  color: #3498db;
+}
+.loading-spinner {
+  text-align: center;
+  padding: 15px;
+  color: #3498db;
+}
+
+.no-enfermedades {
+  color: #7f8c8d;
+  font-style: italic;
+  text-align: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.enfermedad-item {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-left: 4px solid #e74c3c;
+}
+
+.section-divider {
+    margin: 40px 0 24px 0;
+    border: none;
+    border-top: 2px solid #009688;
+    width: 100%;
+}

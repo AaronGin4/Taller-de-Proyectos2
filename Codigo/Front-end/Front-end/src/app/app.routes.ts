@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard'; 
 import { AlmacenGuard } from './almacen.guard';
+import { HistoriaGuard } from './historia.guard';
 import { UsuariosGuard } from './usuarios.guard';
 import { PacientesGuard } from './pacientes.guard';
 import DispensacionComponent from './dispensacion/dispensacion.component';
@@ -56,7 +57,7 @@ export const routes: Routes = [
       canActivate: [AlmacenGuard]
     },
     { 
-    path: 'dispensacion/:idPaciente/:idCuna', // <-- Parámetros definidos en la ruta
+    path: 'dispensacion/:idPaciente/:idCuna', 
     component: DispensacionComponent 
     ,canActivate: [PacientesGuard]
   },
@@ -70,6 +71,32 @@ export const routes: Routes = [
     },
     
     {path: 'pacientes', loadComponent: () => import('./pacientes/pacientes.component') ,canActivate: [PacientesGuard] },
+    {
+      path: 'menu-historia',
+      loadComponent: () => import('./menu-historia/menu-historia.component').then(m => m.MenuHistoriaComponent),
+      canActivate: [HistoriaGuard]
+    },
+    
+     {
+      path: 'ver-historia-clinica/:idPaciente',
+      loadComponent: () => import('./ver-historia-clinica/ver-historia-clinica.component')  
+      ,canActivate: [HistoriaGuard]
+    },
+     {
+      path: 'crear-historia-clinica', 
+      loadComponent: () => import('./crear-historia-clinica/crear-historia-clinica.component')
+      ,canActivate: [HistoriaGuard]
+    },
+    {
+      path: 'buscar-historia-clinica',
+      loadComponent: () => import('./buscar-historia-clinica/buscar-historia-clinica.component')
+      ,canActivate: [HistoriaGuard]
+    },
+ {
+      path: 'actualizar-historia-clinica/:idPaciente',
+      loadComponent: () => import('./actualizar-historia-clinica/actualizar-historia-clinica.component')
+      ,canActivate: [HistoriaGuard]
+    },
 
   {
     path: '**',
