@@ -89,7 +89,7 @@ public class PacienteController {
             existingPaciente.setArea(pacienteDetails.getArea());
             existingPaciente.setEstado(pacienteDetails.getEstado());
             existingPaciente.setFechaIngreso(pacienteDetails.getFechaIngreso());
-            existingPaciente.setFechaSalida(pacienteDetails.getFechaSalida()); // <-- AGREGA ESTA LÍNEA
+            existingPaciente.setFechaSalida(pacienteDetails.getFechaSalida());
             existingPaciente.setCuna(pacienteDetails.getCuna());
             existingPaciente.setDiagnosticoPaciente(pacienteDetails.getDiagnosticoPaciente());
             existingPaciente.setDniMadre(pacienteDetails.getDniMadre());

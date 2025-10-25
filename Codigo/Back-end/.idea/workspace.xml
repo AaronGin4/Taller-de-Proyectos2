@@ -7,8 +7,6 @@
     <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PacienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PaseDeVisitaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/PaseDeVisitaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/PaseDeVisitaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/PaseDeVisitaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,14 +52,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BancoDeLecheApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BancoDeLecheApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\FCr\Desktop\Back-final-FCr\src\main\java\com\HospitalRegional\BancoDeLeche\entity" />
@@ -101,7 +99,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="75aee7f1-d449-4bcd-8f78-cceb10a9be58" name="Changes" comment="" />
+      <changelist id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="" />
       <created>1746237661961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
