@@ -1,0 +1,372 @@
+<div class="background-container" [style.backgroundImage]="'url(' + backgroundImage + ')'">
+</div>
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="section-card">
+      <mat-card-title>Registro de Donadora</mat-card-title>
+    </div>
+
+    <!-- Sección 1: Información Personal -->
+    <div class="form-section">
+      <div class="section-header" (click)="toggleSection('personal')">
+        <h3>Información Personal</h3>
+        <span class="toggle-icon">{{ sections.personal ? '▼' : '▶' }}</span>
+      </div>
+      <div class="section-content" *ngIf="sections.personal">
+        <div class="two-column">
+          <div class="form-group">
+            <label>DNI <span class="required">*</span></label>
+            <input type="number" maxlength="8" formControlName="idDonadora" oninput="this.value = this.value.slice(0, 8)">
+            <div class="error" *ngIf="form.get('idDonadora')?.invalid && form.get('idDonadora')?.touched">
+              DNI inválido. Debe tener exactamente 8 dígitos.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Fecha Nacimiento <span class="required">*</span></label>
+            <input type="date" formControlName="fechaNacimientoDonadora">
+            <div class="error" *ngIf="form.get('fechaNacimientoDonadora')?.invalid && form.get('fechaNacimientoDonadora')?.touched">
+              Fecha de nacimiento obligatoria.
+            </div>
+          </div>
+        </div>
+        <div class="two-column">
+          <div class="form-group">
+            <label>Nombres <span class="required">*</span></label>
+            <input type="text" formControlName="nombreDonadora">
+            <div class="error" *ngIf="form.get('nombreDonadora')?.invalid && form.get('nombreDonadora')?.touched">
+              Nombre obligatorio.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Apellido Paterno <span class="required">*</span></label>
+            <input type="text" formControlName="apellidoPaternoDonadora">
+            <div class="error" *ngIf="form.get('apellidoPaternoDonadora')?.invalid && form.get('apellidoPaternoDonadora')?.touched">
+              Apellido paterno obligatorio.
+            </div>
+          </div>
+        </div>
+        <div class="two-column">
+          <div class="form-group">
+            <label>Apellido Materno<span class="required">*</span></label>
+            <input type="text" formControlName="apellidoMaternoDonadora">
+            <div class="error" *ngIf="form.get('apellidoMaternoDonadora')?.invalid && form.get('apellidoMaternoDonadora')?.touched">
+              Apellido materno obligatorio.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Talla (cm) <span class="required">*</span></label>
+            <input type="number" formControlName="tallaDonadora">
+            <div class="error" *ngIf="form.get('tallaDonadora')?.hasError('required') && form.get('tallaDonadora')?.touched">
+              Talla obligatoria.
+            </div>
+            <div class="error" *ngIf="form.get('tallaDonadora')?.hasError('min') && form.get('tallaDonadora')?.touched">
+              Talla debe ser mayor o igual a 0.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 2: Contacto y Dirección -->
+    <div class="form-section">
+      <div class="section-header" (click)="toggleSection('contacto')">
+        <h3>Contacto y Dirección</h3>
+        <span class="toggle-icon">{{ sections.contacto ? '▼' : '▶' }}</span>
+      </div>
+      <div class="section-content" *ngIf="sections.contacto">
+        <div class="two-column">
+          <div class="form-group">
+            <label>Teléfono <span class="required">*</span></label>
+            <input type="number" maxlength="9" formControlName="telefonoDonadora" oninput="this.value = this.value.slice(0, 9)">
+            <div class="error" *ngIf="form.get('telefonoDonadora')?.invalid && form.get('telefonoDonadora')?.touched">
+              Teléfono inválido. Debe tener 9 dígitos.
+            </div>
+          </div>
+        </div>
+        <div class="three-column">
+          <div class="form-group">
+            <label>Departamento <span class="required">*</span></label>
+            <input type="text" formControlName="departamento">
+            <div class="error" *ngIf="form.get('departamento')?.invalid && form.get('departamento')?.touched">
+              Departamento obligatorio.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Provincia <span class="required">*</span></label>
+            <input type="text" formControlName="provincia">
+            <div class="error" *ngIf="form.get('provincia')?.invalid && form.get('provincia')?.touched">
+              Provincia obligatoria.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Distrito <span class="required">*</span></label>
+            <input type="text" formControlName="distrito">
+            <div class="error" *ngIf="form.get('distrito')?.invalid && form.get('distrito')?.touched">
+              Distrito obligatorio.
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Dirección Completa <span class="required">*</span></label>
+          <input type="text" formControlName="direccionActualDonadora">
+          <div class="error" *ngIf="form.get('direccionActualDonadora')?.invalid && form.get('direccionActualDonadora')?.touched">
+            Dirección obligatoria.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 3: Historial de Salud -->
+    <div class="form-section">
+      <div class="section-header" (click)="toggleSection('salud')">
+        <h3>Historial de Salud</h3>
+        <span class="toggle-icon">{{ sections.salud ? '▼' : '▶' }}</span>
+      </div>
+      <div class="section-content" *ngIf="sections.salud">
+        <div class="two-column">
+          <div class="form-group">
+            <label>Centro de salud de Procedencia <span class="required">*</span></label>
+            <input type="text" formControlName="centroSaludControlProcedencia">
+            <div class="error" *ngIf="form.get('centroSaludControlProcedencia')?.invalid && form.get('centroSaludControlProcedencia')?.touched">
+              Campo obligatorio.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Número de controles <span class="required">*</span></label>
+            <input type="number" formControlName="numeroControles">
+            <div class="error" *ngIf="form.get('numeroControles')?.invalid && form.get('numeroControles')?.touched">
+              Campo obligatorio y debe ser un número válido.
+            </div>
+          </div>
+        </div>
+        <div class="two-column">
+          <div class="form-group">
+            <label>Ocupación <span class="required">*</span></label>
+            <input type="text" formControlName="ocupacion">
+            <div class="error" *ngIf="form.get('ocupacion')?.invalid && form.get('ocupacion')?.touched">
+              Campo obligatorio.
+            </div>
+          </div>
+          <div class="form-group">
+            <label>¿Sufre de alguna enfermedad? <span class="required">*</span></label>
+            <input type="text" formControlName="enfermedadActual">
+            <div class="error" *ngIf="form.get('enfermedadActual')?.invalid && form.get('enfermedadActual')?.touched">
+              Campo obligatorio.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- Sección 4: Pruebas Médicas -->
+    <div class="form-section">
+      <div class="section-header" (click)="toggleSection('pruebas')">
+        <h3>Pruebas Médicas</h3>
+        <span class="toggle-icon">{{ sections.pruebas ? '▼' : '▶' }}</span>
+      </div>
+      <div class="section-content" *ngIf="sections.pruebas">
+        <div class="two-column">
+          <div class="form-group">
+            <label>Transfusión de sangre <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="transfusionSangreMadre" [value]="'Si'">
+                <span>Sí</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="transfusionSangreMadre" [value]="'No'">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Consumo cigarros <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="consumoCigarros" [value]="'Si'">
+                <span>Sí</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="consumoCigarros" [value]="'No'">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div class="form-group">
+            <label>Consumo drogas <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="consumoDrogas" [value]="'Si'">
+                <span>Sí</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="consumoDrogas" [value]="'No'">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Consumo medicamentos <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="consumoMedicamentos" [value]="'Si'">
+                <span>Sí</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="consumoMedicamentos" [value]="'No'">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div class="form-group">
+            <label>Enfermedades <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="enfermedades" [value]="'Positivo'">
+                <span>Positivo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="enfermedades" [value]="'Negativo'">
+                <span>Negativo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="enfermedades" [value]="'No_se_sabe'">
+                <span>No sabe</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div class="form-group">
+            <label>Prueba Sífilis <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaSifilis" [value]="'Positivo'">
+                <span>Positivo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaSifilis" [value]="'Negativo'">
+                <span>Negativo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaSifilis" [value]="'No_se_sabe'">
+                <span>No se sabe</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Prueba Hepatitis <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaHepatitis" [value]="'Positivo'">
+                <span>Positivo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaHepatitis" [value]="'Negativo'">
+                <span>Negativo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaHepatitis" [value]="'No_se_sabe'">
+                <span>No se sabe</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-column">
+          <div class="form-group">
+            <label>Prueba VIH <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaVIH" [value]="'Positivo'">
+                <span>Positivo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaVIH" [value]="'Negativo'">
+                <span>Negativo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="pruebaVIH" [value]="'No_se_sabe'">
+                <span>No se sabe</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Anemia <span class="required">*</span></label>
+            <div class="radio-group">
+              <label class="modern-radio">
+                <input type="radio" formControlName="examenHemoglobina" [value]="'Positivo'">
+                <span>Positivo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="examenHemoglobina" [value]="'Negativo'">
+                <span>Negativo</span>
+              </label>
+              <label class="modern-radio">
+                <input type="radio" formControlName="examenHemoglobina" [value]="'No_se_sabe'">
+                <span>No se sabe</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 5: Información Adicional -->
+    <div class="form-section">
+      <div class="section-header" (click)="toggleSection('adicional')">
+        <h3>Información Adicional</h3>
+        <span class="toggle-icon">{{ sections.adicional ? '▼' : '▶' }}</span>
+      </div>
+      <div class="section-content" *ngIf="sections.adicional">
+        <div class="form-group">
+          <label>Donar leche <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="modern-radio">
+              <input type="radio" formControlName="donarLeche" [value]="'Si'">
+              <span>Sí</span>
+            </label>
+            <label class="modern-radio">
+              <input type="radio" formControlName="donarLeche" [value]="'No'">
+              <span>No</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Apta para donar <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="modern-radio">
+              <input type="radio" formControlName="aptaParaDonar" [value]="'Si'">
+              <span>Sí</span>
+            </label>
+            <label class="modern-radio">
+              <input type="radio" formControlName="aptaParaDonar" [value]="'No'">
+              <span>No</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Consentimiento (opcional)</label>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones finales -->
+    <div class="form-actions">
+      <button type="button" class="btnre" [routerLink]="['/donantes']">Regresar</button>
+      <button type="submit" class="btnagre">Registrar</button>
+      
+    </div>
+  </form>
+</div>

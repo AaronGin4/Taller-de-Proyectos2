@@ -1,0 +1,84 @@
+<!-- registro-leche.component.html -->
+<div class="container">
+  <div class="background-container"></div>
+  
+  <!-- Tarjeta azul para el título -->
+  <div class="title-card">
+    <h1>Registro de Leche Externa</h1>
+  </div>
+
+<div class="table-card">
+  <form [formGroup]="lecheForm" class="main-form">
+
+    <!-- Encabezados -->
+    <div class="registro-headers">
+      <div class="registro-header">N°</div>
+      <div class="registro-header">Cantidad (ml)</div>
+      <div class="registro-header">Hora</div>
+      <div class="registro-header">Fecha</div>
+      <div class="registro-header acciones">Acciones</div>
+    </div>
+
+    <!-- Filas -->
+    <div formArrayName="registros">
+      <div *ngFor="let registro of registros.controls; let i = index" [formGroupName]="i" class="registro-row">
+        <div class="registro-cell">
+          <input matInput formControlName="numero" readonly class="registro-input readonly" />
+        </div>
+
+        <div class="registro-cell">
+          <input matInput type="number" formControlName="cantidad" min="0.01" step="0.01" class="registro-input" />
+        </div>
+
+        <div class="registro-cell">
+          <input matInput type="time" formControlName="hora" class="registro-input" />
+        </div>
+
+        <div class="registro-cell">
+          <input matInput type="date" formControlName="fecha" class="registro-input" />
+        </div>
+
+        <div class="registro-cell acciones">
+          <button mat-raised-button color="warn" (click)="eliminarFila(i)" class="btneli">
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="botones">
+      <button mat-raised-button class="btnre" [routerLink]="['/donantes']">Regresar</button>
+      <button mat-raised-button class="btnlim" (click)="limpiarDatos()">Limpiar</button>
+      <button mat-raised-button class="btnagre" (click)="agregarFila()">Agregar</button>
+      <button mat-raised-button class="btnreg" (click)="guardarRegistros()">Registrar</button>
+    </div>
+  </form>
+</div>
+
+
+  <div class="search-container">
+    <h2 class="existing-title">Registros Existentes</h2>
+    <div class="existing-table-wrapper">
+      <table class="existing-table">
+        <thead>
+          <tr>
+            <th class="col-cantidad">Cantidad (ml)</th>
+            <th class="col-hora">Hora</th>
+            <th class="col-fecha">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registro of registrosExistentes">
+            <td class="centered-cell">{{ registro.cantidad }}</td>
+            <td class="centered-cell">{{ registro.hora }}</td>
+           <td class="centered-cell">{{ registro.fecha | date:'dd/MM/yyyy' }}</td>
+
+          </tr>
+          <tr *ngIf="registrosExistentes.length === 0">
+            <td colspan="3" class="no-records">No hay registros existentes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
