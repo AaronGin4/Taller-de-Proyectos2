@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/ver-pase-de-visita/ver-pase-de-visita.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/ver-pase-de-visita/ver-pase-de-visita.component.css" afterDir="false" />
-    </list>
+    <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
