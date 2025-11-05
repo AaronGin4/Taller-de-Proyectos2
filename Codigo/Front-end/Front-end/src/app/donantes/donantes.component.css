@@ -1,0 +1,188 @@
+.container {
+  background: #f7f7f7;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.background-container {
+  position: fixed;
+  top: 13%;
+  left: 8%;
+  width: 85%;
+  height: 80%;
+  background-image: url('../../assets/logo banco de leche.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+}
+.main-container {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* --- Header de sección --- */
+.section-header {
+  background-color: #11b1a1;
+  border-radius: 15px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+  display: block;
+}
+
+/* --- Footer --- */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+  background-color: #f7f7f7;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+/* --- Buscador --- */
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.search-input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px;
+  background-color: #fefefe;
+  transition: all 0.2s ease-in-out;
+}
+.search-input:focus {
+  border-color: #005cb2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 92, 178, 0.4);
+}
+.search-btn {
+  background-color: #005cb2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+.search-btn:hover {
+  background-color: #004599;
+}
+.clear-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+.clear-btn:hover {
+  color: red;
+}
+
+/* --- Tabla con scroll --- */
+.table-scroll-container {
+  max-height: 60vh;
+  width: 90%;
+  overflow: auto;
+  border-radius: 10px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.table-scroll-container table {
+  width: 100%;
+}
+.table-scroll-container th {
+  background: #1a237e;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.table-scroll-container td {
+  font-size: 1rem;
+  color: #333;
+}
+.table-scroll-container tr:nth-child(even) {
+  background: #f3f3f3;
+}
+
+/* --- Botones principales y secundarios --- */
+button{
+    width: 150px;
+    height: 50px;
+    border: none; 
+    padding: 10px 10px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    font-weight: bold;
+    font-size: large;
+}
+.btnre {
+  background:  #E64A19; 
+  color: white;
+}
+.btnre:hover {
+  background-color: #f07b57; 
+  border: 3px solid #E64A19;
+  color: black;
+} 
+.btnagre {
+    width: 250px;
+  background:  #fd7e14; 
+  color: white;
+}
+.btnagre:hover {
+  background-color: #ffb067; 
+  border: 3px solid #fd7e14;
+  color: black;
+}
+.btnbus {
+    margin-top: 10px;
+    background:  #007bff; 
+    color: white;
+}
+.btnbus:hover {
+  background-color: #5aa3ff; 
+  border: 3px solid #007bff;
+  color: black;
+} 
+
+.btn-registro {
+  background:  #28a745; 
+  color: white;
+}
+.btn-registro:hover {
+  background-color: #6bd48b; 
+  border: 3px solid #28a745;
+  color: black;
+} 
+.btn-procura {
+  background:  #17a2b8; 
+  color: white;
+}
+.btn-procura:hover {
+  background-color: #5fc7d8; 
+  border: 3px solid #17a2b8;
+  color: black;
+} 
