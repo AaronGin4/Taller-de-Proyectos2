@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/apoderado/apoderado.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/apoderado/apoderado.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/apoderado/apoderado.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/apoderado/apoderado.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/donantes/donantes.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/donantes/donantes.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/donantes/donantes.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/donantes/donantes.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/enfermedades-paciente/enfermedades-paciente.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/enfermedades-paciente/enfermedades-paciente.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/enfermedades-paciente/enfermedades-paciente.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/enfermedades-paciente/enfermedades-paciente.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/registrar-procura/registrar-procura.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/registrar-procura/registrar-procura.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/registrar-procura/registrar-procura.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/registrar-procura/registrar-procura.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
