@@ -18,8 +18,14 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+<<<<<<< HEAD
     "chart.js": "^4.5.1",
     "ng2-charts": "^7.0.0",
+=======
+    "@types/chart.js": "^2.9.41",
+    "chart.js": "^4.4.1",
+    "ng2-charts": "^5.0.1",
+>>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.23.0",
     "tslib": "^2.3.0",

@@ -1,5 +1,6 @@
 package com.HospitalRegional.BancoDeLeche.controller;
 
+
 import com.HospitalRegional.BancoDeLeche.entity.DiagnosticoPaciente;
 import com.HospitalRegional.BancoDeLeche.service.DiagnosticoPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
