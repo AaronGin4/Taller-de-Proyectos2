@@ -1,0 +1,71 @@
+<div class="container">
+  <!-- Fondo con logo -->
+  <div class="background-container"></div>
+
+  <!-- Sección principal -->
+  <div class="main-container">
+    <!-- Encabezado de sección -->
+    <mat-card class="section-header">
+      <mat-card-title>REGISTRO DE DONANTES</mat-card-title>
+    </mat-card>
+  <div class="search-container">
+  <input
+  type="text"
+  [(ngModel)]="filtroDNI"
+  (keyup.enter)="buscarPorDNI()"
+  (keypress)="soloNumeros($event)"
+  maxlength="8"
+  pattern="^[0-9]*$"
+  placeholder="🔍 Buscar por DNI"
+  class="search-input"
+/>
+
+  <button (click)="buscarPorDNI()" class="search-btn">Buscar</button>
+  <button *ngIf="filtroDNI" (click)="limpiarFiltro()" class="clear-btn">❌</button>
+</div>
+
+
+
+    <!-- Tabla -->
+    <div class="table-scroll-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Columnas -->
+        <ng-container matColumnDef="dni">
+          <th mat-header-cell *matHeaderCellDef>DNI</th>
+          <td mat-cell *matCellDef="let element">{{element.dni}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>NOMBRE COMPLETO</th>
+          <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="procura">
+          <th mat-header-cell *matHeaderCellDef>PROCURA</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn-procura" [routerLink]='["/registro-procura", element.donadora.idDonadora]'>VER</button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="registro">
+          <th mat-header-cell *matHeaderCellDef>REGISTRO DE LECHE</th>
+          <td mat-cell *matCellDef="let element">
+            <button class= btn-registro  [routerLink]='["/registro-leche-donadora", element.donadora.idDonadora]'
+            routerLinkActive="router-link-active">AGREGAR</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div *ngIf="dataSource.length === 0" class="no-results">
+  No se encontraron donantes con ese DNI.
+</div>
+    </div>
+ 
+ <footer>
+    <button class="btnre" [routerLink]='["/menu-areas"]'>Regresar</button>
+    <button  class="btnagre" [routerLink]='["/registro-donante"]'>
+      Agregar nueva donante
+    </button>
+  </footer>

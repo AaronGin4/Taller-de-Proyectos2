@@ -1,0 +1,309 @@
+<div class="container">
+  <div class="background-container"></div>
+  <form [formGroup]="form">
+
+      <h2>REGISTRO DE PROCURA</h2>
+      <!-- Sección 1: Información Personal -->
+       <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+  <button type="button" (click)="habilitarEdicion()" class="btn-editar">
+   ✍  {{ modoEdicion ? 'Bloquear Edición' : 'Editar'  }}
+  </button>
+</div>
+      <div class="form-section">
+        <div class="section-header" (click)="toggleSection('personal')">
+          <h3>Información Personal</h3>
+          <span class="toggle-icon">{{ sections.personal ? '▼' : '▶' }}</span>
+        </div>
+        <div class="section-content" *ngIf="sections.personal">
+          <div class="two-column">
+            <div class="form-group">
+              <label>DNI <span class="required">*</span></label>
+              <input type="text" formControlName="idDonadora">
+              <div class="error" *ngIf="form.get('idDonadora')?.hasError('required')">
+                DNI requerido
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Fecha Nacimiento <span class="required">*</span></label>
+              <input type="date" formControlName="fechaNacimientoDonadora" >
+            </div>
+          </div>
+  
+          <div class="two-column">
+            <div class="form-group">
+              <label>Nombres <span class="required">*</span></label>
+              <input type="text" formControlName="nombreDonadora">
+            </div>
+            
+            <div class="form-group">
+              <label>Apellido Paterno <span class="required">*</span></label>
+              <input type="text" formControlName="apellidoPaternoDonadora">
+            </div>
+          </div>
+  
+          <div class="two-column">
+            <div class="form-group">
+              <label>Apellido Materno</label>
+              <input type="text" formControlName="apellidoMaternoDonadora">
+            </div>
+            
+            <div class="form-group">
+              <label>Talla (cm)</label>
+              <input type="number" formControlName="tallaDonadora">
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Sección 2: Contacto y Dirección -->
+      <div class="form-section">
+        <div class="section-header" (click)="toggleSection('contacto')">
+          <h3>Contacto y Dirección</h3>
+          <span class="toggle-icon">{{ sections.contacto ? '▼' : '▶' }}</span>
+        </div>
+        <div class="section-content" *ngIf="sections.contacto">
+          <div class="two-column">
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="text" formControlName="telefonoDonadora">
+            </div>
+          </div>
+  
+          <div class="three-column">
+            <div class="form-group">
+              <label>Departamento</label>
+              <input type="text" formControlName="departamento">
+            </div>
+            <div class="form-group">
+              <label>Provincia</label>
+              <input type="text" formControlName="provincia">
+            </div>
+            <div class="form-group">
+              <label>Distrito</label>
+              <input type="text" formControlName="distrito">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Dirección Completa</label>
+            <input type="text" formControlName="direccionActualDonadora">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Sección 3: Salud -->
+      <div class="form-section">
+        <div class="section-header" (click)="toggleSection('salud')">
+          <h3>Historial de Salud</h3>
+          <span class="toggle-icon">{{ sections.salud ? '▼' : '▶' }}</span>
+        </div>
+        <div class="section-content" *ngIf="sections.salud">
+        <div class="two-column">
+            <div class="form-group">
+                <label>Centro de salud de Procedencia</label>
+                <input type="text" formControlName="centroSaludControlProcedencia">
+            </div>
+            <div class="form-group">
+                <label>Numero de controles</label>
+                <input type="text" formControlName="numeroControles">
+            </div>
+        </div>
+        <div class="two-column">
+            <div class="form-group">
+                <label>Ocupación</label>
+                <input type="text" formControlName="ocupacion">
+            </div>
+            <div class="form-group">
+                <label>¿Sufre de alguna enfermedad?</label>
+                <input type="text" formControlName="enfermedadActual">
+            </div>
+        </div>
+         </div>
+      </div>
+      <!-- Sección 4: Pruebas Médicas -->
+      <div class="form-section">
+        <div class="section-header" (click)="toggleSection('pruebas')">
+          <h3>Pruebas Médicas</h3>
+          <span class="toggle-icon">{{ sections.pruebas ? '▼' : '▶' }}</span>
+        </div>
+        <div class="section-content" *ngIf="sections.pruebas">
+          <div class=" two-column">
+            <div class="form-group">
+                <label>Transfusión de sangre</label>
+                <div class="radio-group">
+                 <label>
+                    <input type="radio"  value="Si" formControlName="transfusionSangreMadre"> Sí
+                </label>
+                <label>
+                    <input type="radio"  value="No" formControlName="transfusionSangreMadre"> No
+                </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Consumo de Cigarros</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" value="Si" formControlName="consumoCigarros"> Sí
+                    </label>
+                    <label>
+                        <input type="radio" value="No" formControlName="consumoCigarros"> No
+                    </label>
+                </div>
+            </div>
+          </div>
+          <div class=" two-column">
+            <div class="form-group">
+                <label>Consumo de Drogas</label>
+                <div class="radio-group">
+                 <label>
+                    <input type="radio"  value="Si" formControlName="consumoDrogas"> Sí
+                </label>
+                <label>
+                    <input type="radio"  value="No" formControlName="consumoDrogas"> No
+                </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Consumo de medicamentos</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" value="Si" formControlName="consumoMedicamentos"> Sí
+                    </label>
+                    <label>
+                        <input type="radio" value="No" formControlName="consumoMedicamentos"> No
+                    </label>
+                </div>
+            </div>
+          </div>
+          <div class=" two-column">
+            <div class="form-group">
+                <label>Enfermedades</label>
+                <div class="radio-group">
+                    <label>
+                       <input type="radio" formControlName="enfermedades" value="Positivo"> Positivo
+                    </label>
+                    <label>
+                       <input type="radio" formControlName="enfermedades" value="Negativo"> Negativo
+                    </label>
+                    <label>
+                       <input type="radio"  formControlName="enfermedades" value="No_se_sabe"> No se Sabe
+                    </label>
+                </div>
+            </div>
+          </div>
+          <div class=" two-column">
+            <div class="form-group">
+                <label>Prueba Sífilis</label>
+                <div class="radio-group">
+                    <label>
+                       <input type="radio" formControlName="pruebaSifilis" value="Positivo"> Positivo
+                    </label>
+                    <label>
+                       <input type="radio" formControlName="pruebaSifilis" value="Negativo"> Negativo
+                    </label>
+                    <label>
+                       <input type="radio"  formControlName="pruebaSifilis" value="No_se_sabe"> No se Sabe
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Prueba Hepatitis</label>
+                <div class="radio-group">
+                    <label>
+                       <input type="radio" formControlName="pruebaHepatitis" value="Positivo"> Positivo
+                    </label>
+                    <label>
+                       <input type="radio" formControlName="pruebaHepatitis" value="Negativo"> Negativo
+                    </label>
+                    <label>
+                       <input type="radio"  formControlName="pruebaHepatitis" value="No_se_sabe"> No se Sabe
+                    </label>
+                </div>
+            </div>
+          </div>
+          <div class=" two-column">
+            <div class="form-group">
+                <label>Prueba VIH</label>
+                <div class="radio-group">
+                    <label>
+                       <input type="radio" formControlName="pruebaVIH" value="Positivo"> Positivo
+                    </label>
+                    <label>
+                       <input type="radio" formControlName="pruebaVIH" value="Negativo"> Negativo
+                    </label>
+                    <label>
+                       <input type="radio"  formControlName="pruebaVIH" value="No_se_sabe"> No se Sabe
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Hemoglobinas</label>
+                <div class="radio-group">
+                    <label>
+                       <input type="radio" formControlName="examenHemoglobina" value="Positivo"> Positivo
+                    </label>
+                    <label>
+                       <input type="radio" formControlName="examenHemoglobina" value="Negativo"> Negativo
+                    </label>
+                    <label>
+                       <input type="radio"  formControlName="examenHemoglobina" value="No_se_sabe"> No se Sabe
+                    </label>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Sección 5: Adicional -->
+      <div class="form-section">
+        <div class="section-header" (click)="toggleSection('adicional')">
+          <h3>Información Adicional</h3>
+          <span class="toggle-icon">{{ sections.adicional ? '▼' : '▶' }}</span>
+        </div>
+        <div class="section-content" *ngIf="sections.adicional">
+          <div class="form-group">
+            <label>¿Acepta donar leche materna?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" value="Si" formControlName="donarLeche"> Sí
+              </label>
+              <label>
+                <input type="radio" value="No" formControlName="donarLeche"> No
+              </label>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label>¿Está apta para donar?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" value="Si" formControlName="aptaParaDonar"> Sí
+              </label>
+              <label>
+                <input type="radio" value="No" formControlName="aptaParaDonar"> No
+              </label>
+            </div>
+           <div class="form-group">
+  <label>Consentimiento</label>
+
+  <div *ngIf="tieneConsentimiento && !consentimientoBase64; else subirNuevo" class="botones">
+    <button type="button" class="btnmos" (click)="mostrarConsentimiento()">📄 Mostrar consentimiento</button>
+    <button type="button" class="btneli" (click)="eliminarConsentimiento()">🗑 Eliminar</button>
+  </div>
+
+  <ng-template #subirNuevo>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*,.pdf" />
+    <small style="color: #888">Sube un nuevo consentimiento si deseas reemplazarlo.</small>
+  </ng-template>
+</div>
+
+    </div>
+    </div>
+      <!-- Botones finales -->
+      <div class="botones">
+        <button type="button" class="btnre" [routerLink]='["/donantes"]'>Regresar</button>
+        <button type="submit" class="btnreg" (click)="onSubmit()">Actualizar</button>
+        
+    </div>
+    </div>
+  </form>

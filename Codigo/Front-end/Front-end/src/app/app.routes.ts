@@ -37,9 +37,6 @@ export const routes: Routes = [
       canActivate: [AlmacenGuard]
     },
   
-    
-   
-
     {
       path: 'crear-usuario',
       loadComponent: () => import('./crear-usuario/crear-usuario.component').then(m => m.CrearUsuarioComponent)
@@ -61,12 +58,24 @@ export const routes: Routes = [
       loadComponent: () => import('./leches-disponibles/leches-disponibles.component').then(m => m.LechesDisponiblesComponent),
       canActivate: [AlmacenGuard]
     },
+<<<<<<< HEAD
      { path: 'pase-de-visita/:id/:idcuna', loadComponent: () => import('./pase-de-visita/pase-de-visita.component'),canActivate: [PacientesGuard] },
+=======
+    {
+      path: 'registro-autologa',
+      loadComponent: () => import('./registro-autologa/registro-autologa.component').then(m => m.RegistroAutologaComponent)
+      ,canActivate: [AlmacenGuard]
+    },
+>>>>>>> 99a430d1165d830a64e9395dbd572251abddfdd6
     { 
     path: 'dispensacion/:idPaciente/:idCuna', 
     component: DispensacionComponent 
     ,canActivate: [PacientesGuard]
   },
+  { path: 'pase-de-visita/:id/:idcuna', 
+    loadComponent: () => import('./pase-de-visita/pase-de-visita.component')
+    ,canActivate: [PacientesGuard] },
+   
     {
       path: 'ver-pase-de-visita',
       loadComponent: () => import('./ver-pase-de-visita/ver-pase-de-visita.component')

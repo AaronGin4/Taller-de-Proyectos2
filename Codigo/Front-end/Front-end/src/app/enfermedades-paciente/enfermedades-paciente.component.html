@@ -1,0 +1,64 @@
+<h3>ENFERMEDADES DEL PACIENTE</h3>
+
+<!-- Modal para la creación de enfermedad -->
+<div class="modal" *ngIf="mostrarModalEnfermedad">
+    <div class="modal-content">
+        <span class="close" (click)="cerrarModal()">&times;</span>
+        <h2>Crear Enfermedad</h2>
+        <form [formGroup]="enfermedadForm">
+            <input formControlName="nombreEnfermedad" placeholder="Nombre de la enfermedad" />
+            <select formControlName="categoriaEnfermedad" hi>
+                <option *ngFor="let categoria of categoriasDisponibles" [value]="categoria">{{ categoria }}</option>
+            </select>
+            <button type="button" (click)="guardarEnfermedadDesdeModal()">Guardar</button>
+
+        </form>
+    </div>
+</div>
+
+<body>
+    <!-- Botón para abrir el modal -->
+
+
+
+    <div class="enfermedades-grid">
+        <div class="enfermedad-categoria">
+            <label>Gastrointestinales:</label>
+            <select [(ngModel)]="enfermedadSeleccionada['gastrointestinales']">
+              <option *ngFor="let enf of enfermedadesPorCategoria['gastrointestinales']"
+                      [ngValue]="enf">{{ enf.nombreEnfermedad }}</option>
+            </select>
+            <button type="button" class="btn-agregar" (click)="guardarEnfermedadSeleccionada('gastrointestinales')">Guardar</button>
+          </div>
+
+          <div class="enfermedad-categoria">
+            <label>Respiratorios:</label>
+            <select [(ngModel)]="enfermedadSeleccionada['respiratorios']">
+              <option *ngFor="let enf of enfermedadesPorCategoria['respiratorios']"
+                      [ngValue]="enf">{{ enf.nombreEnfermedad }}</option>
+            </select>
+            <button type="button" class="btn-agregar" (click)="guardarEnfermedadSeleccionada('respiratorios')">Guardar</button>
+          </div>
+
+          <div class="enfermedad-categoria">
+            <label>Infecciosos:</label>
+            <select [(ngModel)]="enfermedadSeleccionada['infecciosos']">
+              <option *ngFor="let enf of enfermedadesPorCategoria['infecciosos']"
+                      [ngValue]="enf">{{ enf.nombreEnfermedad }}</option>
+            </select>
+            <button type="button" class="btn-agregar" (click)="guardarEnfermedadSeleccionada('infecciosos')">Guardar</button>
+          </div>
+
+          <div class="enfermedad-categoria">
+            <label>Otros:</label>
+            <select [(ngModel)]="enfermedadSeleccionada['otros']">
+              <option *ngFor="let enf of enfermedadesPorCategoria['otros']"
+                      [ngValue]="enf">{{ enf.nombreEnfermedad }}</option>
+            </select>
+            <button type="button" class="btn-agregar" (click)="guardarEnfermedadSeleccionada('otros')">Guardar</button>
+          </div>
+          <button type="button" class="btn-close" (click)="terminar()">Registrar</button>
+    </div>
+    <button type="button" class="btn-nueva-enfermedad" (click)="abrirModal()">Agregar nueva enfermedad</button>
+
+</body>
