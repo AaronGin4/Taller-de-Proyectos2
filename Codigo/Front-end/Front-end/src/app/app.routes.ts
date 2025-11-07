@@ -52,10 +52,16 @@ export const routes: Routes = [
       canActivate: [UsuariosGuard]
     },
     {
+      path: 'registro-autologa',
+      loadComponent: () => import('./registro-autologa/registro-autologa.component').then(m => m.RegistroAutologaComponent)
+      ,canActivate: [AlmacenGuard]
+    },
+    {
       path: 'leches-disponibles',
       loadComponent: () => import('./leches-disponibles/leches-disponibles.component').then(m => m.LechesDisponiblesComponent),
       canActivate: [AlmacenGuard]
     },
+     { path: 'pase-de-visita/:id/:idcuna', loadComponent: () => import('./pase-de-visita/pase-de-visita.component'),canActivate: [PacientesGuard] },
     { 
     path: 'dispensacion/:idPaciente/:idCuna', 
     component: DispensacionComponent 
@@ -95,6 +101,11 @@ export const routes: Routes = [
  {
       path: 'actualizar-historia-clinica/:idPaciente',
       loadComponent: () => import('./actualizar-historia-clinica/actualizar-historia-clinica.component')
+      ,canActivate: [HistoriaGuard]
+    },
+     {
+      path: 'reporte-por-paciente/:idPaciente',
+      loadComponent: () => import('./reporte-por-paciente/reporte-por-paciente.component').then(m => m.ReportePorPacienteComponent)
       ,canActivate: [HistoriaGuard]
     },
 

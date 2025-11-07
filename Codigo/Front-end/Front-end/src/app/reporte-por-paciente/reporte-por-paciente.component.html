@@ -1,0 +1,110 @@
+<div class="reporte-paciente-container">
+  <h1 class="titulo-paciente">REPORTE POR PACIENTE</h1>
+
+  <div class="paciente-info">
+    
+
+    <div class="info-group">
+      <label for="codigo">Número de Historia Clinica:</label>
+      <input id="codigo" type="text" [value]="paciente.codigo" readonly>
+    </div>
+
+    <div class="info-group">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text" [value]="paciente.nombre" readonly>
+    </div>
+
+    <div class="info-group">
+      <label for="apellidos">Apellidos:</label>
+      <input id="apellidos" type="text" [value]="paciente.apellidos" readonly>
+    </div>
+
+    <div class="info-group">
+      <label for="numeroCuna">Número de cuna:</label>
+      <input id="numeroCuna" type="text" [value]="paciente.numeroCuna" readonly>
+    </div>
+
+    <div class="info-group full-width">
+      <label for="diagnostico">Observaciones:</label>
+      <textarea id="diagnostico" [value]="paciente.diagnostico" readonly></textarea>
+    </div>
+  </div>
+
+  <!-- Filtros por mes y año -->
+  <fieldset class="filtros-container">
+    <legend class="indice">Filtrar por Año y Mes</legend>
+    <select [(ngModel)]="selectedAnio" (change)="filtrarPorMesYAnio()">
+      <option value="">- Todos los Años -</option>
+      <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+    </select>
+
+    <select [(ngModel)]="selectedMes" (change)="filtrarPorMesYAnio()">
+      <option value="">- Todos los Meses -</option>
+      <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+    </select>
+
+    <select [(ngModel)]="selectedDia" (change)="filtrarPorMesYAnio()">
+      <option value="">- Todos los Días -</option>
+      <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
+    </select>
+    <button class="btnlim" (click)="limpiarFiltros()">Limpiar filtros</button>
+
+  </fieldset>
+  
+  
+  <div class="grafico-paciente" *ngIf="hasChartData">
+    <h3>Distribución de leche consumida</h3>
+    <canvas baseChart
+      [data]="pieChartData"
+      [type]="pieChartType"
+      [options]="pieChartOptions"
+      [legend]="pieChartLegend"
+      style="max-width: 400px; max-height: 400px;">
+    </canvas>
+  </div>
+
+  <div *ngIf="!hasChartData">
+    <p>El Paciente no registra ningún consumo de leche.</p>
+  </div>
+
+  <div class="datosExtra">
+    <div class="totales">
+      <h3 class="titulos">LECHE PASTEURIZADA DISPENSADA</h3>
+        <ul class="lista-totales">
+          <li><span>Leche Pasteurizada Calostro:</span> <span>{{ pasteurizadaCalostro | number:'1.2-2' }} ml</span></li>
+          <li><span>Leche Pasteurizada Transición:</span> <span>{{ pasteurizadaTransicion | number:'1.2-2' }} ml</span></li>
+          <li><span>Leche Pasteurizada Madura:</span> <span>{{ pasteurizadaMadura | number:'1.2-2' }} ml</span></li>
+        </ul>
+        <br><br>
+        <h3 class="titulos">Códigos de Leches Usadas:</h3>
+        <div class="lista-codigos" style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <button
+            *ngFor="let registro of codigosUnicosPasteurizada"
+            (click)="mostrarDetallePasteurizadaPorCodigo(registro.codigoLeche)"
+            style="
+              background-color: #3498db;
+              color: white;
+              border: none;
+              border-radius: 6px;
+              padding: 10px 16px;
+              cursor: pointer;
+              font-weight: bold;
+              transition: background-color 0.3s;
+            "
+            onmouseover="this.style.backgroundColor='#2980b9'"
+            onmouseout="this.style.backgroundColor='#3498db'"
+          >
+            {{ registro.codigoLeche || 'Sin código' }}
+          </button>
+        </div>
+    </div>
+    
+    <br><br>
+    
+  </div>
+  <br><br>
+  <div class="botones">
+    <button class="btnre" routerLink="/ver-historia-clinica/{{ paciente.codigo }}">Regresar</button>
+    <button class="btnrepo" [routerLink]="['/imprimir-reporte', paciente.codigo]">🖨️ Imprimir</button>
+  </div>
+</div>

@@ -166,6 +166,7 @@ getReportesPorPaciente(idPaciente: string): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/reportePacientes/paciente/${idPaciente}`);
 }
 registrarPasteurizadaDispensada(data: any): Observable<any> {
+    console.log(data)
   return this.http.post(`${this.apiUrl}/pasteurizada-dispensada`, data);
 }
 
