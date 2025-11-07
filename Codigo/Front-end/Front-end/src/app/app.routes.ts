@@ -103,6 +103,12 @@ export const routes: Routes = [
       loadComponent: () => import('./actualizar-historia-clinica/actualizar-historia-clinica.component')
       ,canActivate: [HistoriaGuard]
     },
+    {
+      path: 'reporte-por-paciente/:idPaciente',
+      loadComponent: () => import('./reporte-por-paciente/reporte-por-paciente.component').then(m => m.ReportePorPacienteComponent)
+      ,canActivate: [HistoriaGuard]
+    },
+    
 
   {
     path: '**',
