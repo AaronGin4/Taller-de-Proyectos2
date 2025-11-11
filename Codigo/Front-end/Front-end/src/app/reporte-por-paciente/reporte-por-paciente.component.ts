@@ -3,7 +3,6 @@ import { ChartConfiguration, ChartType } from 'chart.js';
 import { CommonModule } from '@angular/common';
 <<<<<<< HEAD
 //import { NgChartsModule } from 'ng2-charts';
-=======
 import { NgChartsModule } from 'ng2-charts';
 >>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
 import { FormsModule } from '@angular/forms';
@@ -16,9 +15,7 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-reporte-por-paciente',
   standalone: true,
-<<<<<<< HEAD
-  imports: [CommonModule /*NgChartsModule*/, FormsModule, RouterLink],
-=======
+<<<<<<< HEA
   imports: [CommonModule, NgChartsModule, FormsModule, RouterLink],
 >>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
   templateUrl: './reporte-por-paciente.component.html',
