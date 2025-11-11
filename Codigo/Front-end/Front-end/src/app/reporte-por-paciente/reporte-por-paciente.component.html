@@ -51,20 +51,7 @@
 
   </fieldset>
   
-<<<<<<< HEAD
-=======
-  
-  <div class="grafico-paciente" *ngIf="hasChartData">
-    <h3>Distribución de leche consumida</h3>
-    <canvas baseChart
-      [data]="pieChartData"
-      [type]="pieChartType"
-      [options]="pieChartOptions"
-      [legend]="pieChartLegend"
-      style="max-width: 400px; max-height: 400px;">
-    </canvas>
-  </div>
->>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
+
 
   <div *ngIf="!hasChartData">
     <p>El Paciente no registra ningún consumo de leche.</p>

@@ -58,15 +58,15 @@ export const routes: Routes = [
       loadComponent: () => import('./leches-disponibles/leches-disponibles.component').then(m => m.LechesDisponiblesComponent),
       canActivate: [AlmacenGuard]
     },
-<<<<<<< HEAD
+
      { path: 'pase-de-visita/:id/:idcuna', loadComponent: () => import('./pase-de-visita/pase-de-visita.component'),canActivate: [PacientesGuard] },
-=======
+
     {
       path: 'registro-autologa',
       loadComponent: () => import('./registro-autologa/registro-autologa.component').then(m => m.RegistroAutologaComponent)
       ,canActivate: [AlmacenGuard]
     },
->>>>>>> 99a430d1165d830a64e9395dbd572251abddfdd6
+
     { 
     path: 'dispensacion/:idPaciente/:idCuna', 
     component: DispensacionComponent 
@@ -112,19 +112,18 @@ export const routes: Routes = [
       loadComponent: () => import('./actualizar-historia-clinica/actualizar-historia-clinica.component')
       ,canActivate: [HistoriaGuard]
     },
-<<<<<<< HEAD
-    {
-=======
+
+
      {
->>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
+
       path: 'reporte-por-paciente/:idPaciente',
       loadComponent: () => import('./reporte-por-paciente/reporte-por-paciente.component').then(m => m.ReportePorPacienteComponent)
       ,canActivate: [HistoriaGuard]
     },
-<<<<<<< HEAD
-    
-=======
->>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
+    {
+      path: 'reportes',
+      loadComponent: () => import('./reportes/reportes.component').then(m => m.ReportesComponent)
+    },
 
   {
     path: '**',

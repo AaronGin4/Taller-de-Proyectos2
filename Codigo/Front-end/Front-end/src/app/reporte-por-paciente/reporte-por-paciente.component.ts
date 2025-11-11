@@ -1,10 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ChartConfiguration, ChartType } from 'chart.js';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
+
 //import { NgChartsModule } from 'ng2-charts';
-import { NgChartsModule } from 'ng2-charts';
->>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
 import { FormsModule } from '@angular/forms';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { ReportesPacienteService } from '../services/reporte-por-paciente.service';
@@ -15,9 +13,8 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-reporte-por-paciente',
   standalone: true,
-<<<<<<< HEA
-  imports: [CommonModule, NgChartsModule, FormsModule, RouterLink],
->>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
+  imports: [CommonModule, /*NgChartsModule,*/ FormsModule, RouterLink],
+
   templateUrl: './reporte-por-paciente.component.html',
   styleUrls: ['./reporte-por-paciente.component.css']
 })

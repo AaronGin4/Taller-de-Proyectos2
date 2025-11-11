@@ -1,0 +1,173 @@
+\<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Reporte General</h1>
+    <br><br>
+    <h3 class="titulo">Reporte De Leche Dispensada Según Pase de Visita</h3>
+
+    
+    <div class="grafico">
+      <h3>Leche Dispensada</h3>
+
+      <div class="filtros-container" >
+        <div class="combobox-group">
+          <label>Año:</label>
+          <select [(ngModel)]="selectedAnioPieAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">-Todos los Años -</option>
+            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+          </select>
+        </div>
+        <div class="combobox-group">
+          <label>Mes:</label>
+          <select [(ngModel)]="selectedMesPieAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">-Todos los Meses -</option>
+            <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+          </select>
+        </div>
+        <div class="combobox-group">
+          <label>Día:</label>
+          <select [(ngModel)]="selectedDiaPieAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">-Todos los Días -</option>
+            <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
+          </select>
+        </div>
+        <div class="combobox-group">
+          <label>Según Peso al Nacer:</label>
+          <select [(ngModel)]="selectedTipoBebeAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">-Todos los Pesos -</option>
+            <option *ngFor="let tipo of tiposBebe" [value]="tipo">{{ tipo }}</option>
+          </select>
+        </div>
+        <div class="combobox-group">
+          <label>Edad Gestacional:</label>
+          <select [(ngModel)]="selectedEdadGestacionalAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">-Todas las Edades Gestacionales -</option>
+            <option *ngFor="let tipo of tiposEdadGestacional" [value]="tipo">{{ tipo }}</option>
+          </select>
+        </div>
+        <div class="combobox-group">
+          <label>Área:</label>
+          <select [(ngModel)]="selectedAreaAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">- Todas las Áreas -</option>
+            <option *ngFor="let area of areas" [value]="area">{{ area }}</option>
+          </select>
+        </div>
+        <div class="combobox-group">
+          <label>Tipo de Leche:</label>
+          <select [(ngModel)]="selectedTipoLecheAdicional" (change)="actualizarGraficoAdicionalPorMesYAnio()">
+            <option value="">- Todos los Tipos -</option>
+            <option *ngFor="let tipo of tiposLeche" [value]="tipo">{{ tipo }}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <canvas baseChart
+        [data]="pieChartDataAdicional"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+        [legend]="pieChartLegend">
+      </canvas>
+      <br>
+      <br>
+      <div class="datosExtra">
+        <div class="totales">
+          <h3 class="titulos">LECHE PASTEURIZADA DISPENSADA</h3>
+          <ul class="lista-totales">
+            <li><span> Leche Pasteurizada Calostro:</span> <span>{{ pasteurizadaCalostro | number:'1.2-10' }} ml</span></li>
+            <li><span> Leche Pasteurizada Transición:</span> <span>{{ pasteurizadaTransicion | number:'1.2-10' }} ml</span></li>
+            <li><span> Leche Pasteurizada Madura:</span> <span>{{ pasteurizadaMadura | number:'1.2-2' }} ml</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <h3 >Reporte de Leche Dispensada Según Fecha de Ingreso de Pacientes</h3>
+    <div class="filtros-container">
+      <!-- Combobox para filtros -->
+      
+
+      <div class="combobox-group">
+        <label for="anioGraficos">Año:</label>
+        <select id="anioGraficos" [(ngModel)]="selectedAnioGraficos" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="mesGraficos">Mes:</label>
+        <select id="mesGraficos" [(ngModel)]="selectedMesGraficos" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="diaGraficos">Día:</label>
+        <select id="diaGraficos" [(ngModel)]="selectedDiaGraficos" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="tipoBebe">Según Peso al nacer:</label>
+        <select id="tipoBebe" [(ngModel)]="selectedTipoBebe" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let tipo of tiposBebe" [value]="tipo">{{tipo}}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="edadGestacional">Edad gestacional:</label>
+        <select id="edadGestacional" [(ngModel)]="selectedEdadGestacional" (change)="actualizarGraficos()">
+          <option value="">Todas</option>
+          <option *ngFor="let edad of tiposEdadGestacional" [value]="edad">{{edad}}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="tipoLeche">Tipo de leche:</label>
+        <select id="tipoLeche" [(ngModel)]="selectedTipoLeche" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let leche of tiposLeche" [value]="leche">{{leche}}</option>
+        </select>
+      </div>
+
+      
+    </div>
+    
+    <!-- Gráficos -->
+    <div class="graficos-container">
+      <div class="grafico">
+        <h3>Distribución de Leche Dispensada</h3>
+        <canvas baseChart
+          [data]="pieChartData"
+          [type]="pieChartType"
+          [options]="pieChartOptions"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div>
+
+      <div class="grafico">
+        <h3>Clasificación de Pacientes Ingresados según edad Gestacional</h3>
+        <canvas baseChart
+          [data]="{
+            labels: tiposEdadGestacional,
+            datasets: [{ data: edadGestacionalData, label: 'Cantidad', backgroundColor: '#ce93d8' }]
+          }"
+          [type]="barChartType"
+          [options]="barChartOptions"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+    </div>
+  </div>        
+</body>
