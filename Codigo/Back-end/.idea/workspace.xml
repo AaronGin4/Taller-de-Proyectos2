@@ -4,43 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/RegistroLecheCrudaDonadoraController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/RegistroLecheCrudaDonadora.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/repository/RegistroLecheCrudaDonadoraRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/RegistroLecheCrudaDonadoraService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.routes.ts" afterDir="false" />
     </list>
-=======
-<<<<<<< HEAD
-    <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/DonadoraController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/EnfermedadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/EnfermedadesPacienteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Donadora.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/Enfermedad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/entity/EnfermedadesPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/repository/DonadoraRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/repository/EnfermedadRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/repository/EnfermedadesPacienteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/DonadoraService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/EnfermedadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/service/EnfermedadesPacienteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/DiagnosticoPacienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/HospitalRegional/BancoDeLeche/controller/DiagnosticoPacienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/dispensacion/dispensacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/dispensacion/dispensacion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/dispensacion/dispensacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/dispensacion/dispensacion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/services/dispensacion.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/services/dispensacion.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Front-end/Front-end/src/app/ver-pase-de-visita/ver-pase-de-visita.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/Front-end/src/app/ver-pase-de-visita/ver-pase-de-visita.component.html" afterDir="false" />
-    </list>
-=======
-    <list default="true" id="483a9a04-4ed1-4064-88e2-1bb2f041f915" name="Changes" comment="" />
->>>>>>> 99a430d1165d830a64e9395dbd572251abddfdd6
->>>>>>> b8d830b5bf024364f5c83acb9527323c5830cc45
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
