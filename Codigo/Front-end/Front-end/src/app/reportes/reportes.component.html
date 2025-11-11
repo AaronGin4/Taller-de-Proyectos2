@@ -168,6 +168,175 @@
           [legend]="barChartLegend">
         </canvas>
       </div>
+
+      <div class="grafico">
+        <h3>Clasificación de Pacientes Ingresados según su Peso</h3>
+        <canvas baseChart
+          [data]="barChartData"
+          [type]="barChartType"
+          [options]="barChartOptions"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+
+      <div class="grafico">
+        <h3>Clasificación de Pacientes Ingresados según Enfermedades</h3>
+        <canvas baseChart
+          [data]="{ labels: enfermedades, datasets: [{ data: enfermedadesData, label: 'Casos', backgroundColor: '#90caf9' }] }"
+          [type]="barChartType"
+          [options]="barChartOptions"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
     </div>
-  </div>        
+
+    <!--Aca va los pacientes Beneficiados -->
+    <div class="datosExtra">
+
+      <!-- Filtros -->
+      <div class="filtros" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedAnioBeneficiado" (change)="filtrarPacientePorMesYAnio()">
+            <option value="">- Todos los Años -</option>
+            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+          </select>
+        </div>  
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedMesBeneficiado" (change)="filtrarPacientePorMesYAnio()">
+            <option value="">- Todos los Meses -</option>
+            <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Totales -->
+      <div class="totales">
+        <h3 class="titulos">PACIENTES </h3>
+        <ul class="lista-totales">
+          <li><span> Número de Pacientes Ingresados:</span> <span>{{ pacientesIngresados }}</span></li>
+          <li><span> Número de Pacientes Beneficiados:</span> <span>{{ pacientesBeneficiados }}</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Aca es la parte de Leche recolectada  -->
+    <div class="datosExtra">
+
+      <!-- Filtros -->
+      <div class="filtros" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedAnioLeche" (change)="filtrarLechePorMesYAnio()">
+            <option value="">- Todos los Años -</option>
+            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+          </select>
+        </div>
+        
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedMesLeche" (change)="filtrarLechePorMesYAnio()">
+            <option value="">- Todos los Meses -</option>
+            <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+          </select>
+        </div>
+        
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedDiaLeche" (change)="filtrarLechePorMesYAnio()">
+            <option value="">- Todos los Días -</option>
+            <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Totales -->
+      <div class="totales">
+        <h3 class="titulos">Total de Leche Donada Recolectada: </h3>
+        <ul class="lista-totales">
+          <li><span>Leche Autologa:</span> <span>{{ totalLecheMadre }} ml</span></li>
+          <li><span>Leche Donante Externa:</span> <span>{{ totalLecheDonadora }} ml</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!--Aca es la parte de datos extra -->
+    <div class="datosExtra">
+
+      <!-- Filtros -->
+      <div class="filtros" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedAnio" (change)="filtrarPorMesYAnio()">
+            <option value="">-Todos los Años -</option>
+            <option *ngFor="let anio of anios" [value]="anio">{{ anio }}</option>
+          </select>
+        </div>
+        
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedMes" (change)="filtrarPorMesYAnio()">
+            <option value="">-Todos los Meses -</option>
+            <option *ngFor="let mes of meses" [value]="mes">{{ mes }}</option>
+          </select>
+        </div>
+        
+        <div class="combobox-group">
+          <select [(ngModel)]="selectedDia" (change)="filtrarPorMesYAnio()">
+            <option value="">-Todos los Días -</option>
+            <option *ngFor="let dia of dias" [value]="dia">{{ dia }}</option>
+          </select>
+        </div>
+        
+      </div>
+
+      <!-- Totales -->
+      <div class="totales">
+        <h3 class="titulos">Totales</h3>
+        <ul class="lista-totales">
+          <li><span>Preinscripciones:</span> <span>{{ totales.numPreInscripciones }}</span></li>
+        </ul>
+        <br>
+        <h3 class="titulos">Número de Consejerias en: </h3>
+        <ul class="lista-totales">
+          <li><span>Higiene de Manos:</span> <span>{{ totales.higieneManos }}</span></li>
+          <li><span>Higiene de Mamas:</span> <span>{{ totales.higieneMamas }}</span></li>
+          <li><span>Técnica de Extracción de Leche Materna Intrahospitalaria:</span> <span>{{ totales.tecnicaExtraccionIntrahospitalaria }}</span></li>
+          <li><span>Técnica Extraccipon de Leche Materna Extrahospitalaria:</span> <span>{{ totales.tecnicaExtraccionExtrahospitalaria }}</span></li>
+          <li><span>Lavado de Mamas:</span> <span>{{ totales.lavadoMamas }}</span></li>
+        </ul>
+        <br>
+        <h3 class="titulos">Donantes Totales: </h3>
+        <ul class="lista-totales">
+          <li><span>Número de Donantes Internos:</span> <span>{{ totales.numeroDonantes}}</span></li>
+          <li><span>Número de Donantes Externos:</span> <span>{{ totales.numeroDonantesExternos}}</span></li>
+        </ul>
+        <br>
+        <h3 class="titulos">Leche Pasteurizada Total - HOSPITAL REGIONAL: </h3>
+        <ul class="lista-totales">
+          <li><span>Calostro:</span> <span>{{ totales.calostro | number:'1.2-10' }} ml</span></li>
+          <li><span>Transición:</span> <span>{{ totales.transicion | number:'1.2-10' }} ml</span></li>
+          <li><span>Madura:</span> <span>{{ totales.madura | number:'1.2-2' }} ml</span></li>
+          <li><span>Tasa de Descarte:</span> <span>{{ totales.tasaDescarte | number:'1.2-10' }} %</span></li>
+        </ul>
+        <br>
+        <h3 class="titulos">Leche Pasteurizada Total - HOSPITAL ANTONIO LORENA: </h3>
+        <ul class="lista-totales">
+          <li><span>Calostro:</span> <span>{{ totales.calostroAL | number:'1.2-10' }} ml</span></li>
+          <li><span>Transición:</span> <span>{{ totales.transicionAL | number:'1.2-10' }} ml</span></li>
+          <li><span>Madura:</span> <span>{{ totales.maduraAL | number:'1.2-2' }} ml</span></li>
+          <li><span>Tasa de Descarte:</span> <span>{{ totales.tasaDescarteAL | number:'1.2-10' }} %</span></li>
+        </ul>
+        <br>
+        <h3 class="titulos">Cantidad de Leche Entregada a: </h3>
+        <ul class="lista-totales">
+          <li><span>Hospital Antonio Lorena:</span> <span>{{ totales.cantidadAntonioLorena | number:'1.2-10' }} ml</span></li>
+          <li><span>Otros Servicios:</span> <span>{{ totales.cantidadOtros | number:'1.2-10' }} ml</span></li>
+        </ul>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Botones -->
+    <div class="botones">
+      <button class="btnre" routerLink="/menu-areas">Regresar</button>
+      <button class="btnlim" (click)="limpiarFiltros()">Limpiar</button>
+    </div>
+  </div>
 </body>
