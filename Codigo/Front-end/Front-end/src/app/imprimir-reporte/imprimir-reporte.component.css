@@ -1,0 +1,234 @@
+/* Reset y fuentes */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background: white;
+  font-size: 13px;
+}
+.a4-container {
+  margin: 20px 8px 10px 8px;
+  box-shadow: none;
+  padding: 10mm;
+  width: 210mm;
+  min-height: 297mm;
+}
+.content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.header-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 2px solid #2c5aa0;
+  margin-bottom: 15px;
+}
+.logoapp {
+  height: 70px;
+  width: auto;
+  padding: 7px;
+}
+.titulo-reporte {
+  text-align: center;
+  color: #2c5aa0;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.subtitulo {
+  color: #666;
+  font-size: 14px;
+  font-weight: normal;
+}
+.main-content {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+  margin-bottom: 15px;
+}
+.left-column { flex: 1.2; }
+.right-column { flex: 0.8; }
+.patient-section,
+.diagnostico-section,
+.enfermedades-section,
+.grafico-section,
+.tabla-section {
+  background: #f8fbff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  border: 1px solid #e0e6ed;
+  font-size: 15px;
+}
+.diagnostico-section,
+.enfermedades-section,
+.grafico-section,
+.tabla-section {
+  background: #fff;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.info-item,
+.info-row {
+  display: flex;
+  padding: 3px 0;
+}
+.info-item label,
+.info-row label {
+  font-weight: bold;
+  color: #2c5aa0;
+  min-width: 90px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+.info-item .value,
+.info-row .value {
+  color: #1a472a;
+  font-weight: 500;
+  flex: 1;
+  font-size: 15px;
+}
+.section-title {
+  color: #2c5aa0;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 12px 0 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e8f4fd;
+  text-transform: uppercase;
+}
+.enfermedades-list {
+  list-style: none;
+  padding: 0;
+}
+.enfermedades-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.enfermedad-nombre { color: #1a472a; font-weight: 500; }
+.enfermedad-categoria { color: #888; font-style: italic; }
+.grafico-container { margin: 10px 0; }
+.reporte-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.codigo-leche-section {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #fdfdfd;
+}
+
+.codigo-leche-title {
+  margin-top: 0;
+  font-size: 18px;
+  color: #2c5aa0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.codigo-leche-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.codigo-item {
+  display: block;
+  padding: 5px 10px;
+  background-color: #eef2f7;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.reporte-table th {
+  background: linear-gradient(135deg, #2c5aa0 0%, #1e3f73 100%);
+  color: white;
+  padding: 8px 6px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13px;
+}
+.reporte-table td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #e0e6ed;
+  color: #333;
+  font-size: 13px;
+}
+.reporte-table tbody tr:nth-child(even) { background-color: #f8fbff; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #e8f4fd;
+}
+
+/* Botones */
+button,
+.btnrepo,
+.btnre {
+  width: 150px;
+  height: 50px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: large;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.btnrepo {
+  background: #b3e0ff !important; /* pastel azul */
+  color: #333 !important;
+}
+.btnrepo:hover {
+  background-color: #a0d8ef !important;
+  border: 3px solid #b3e0ff !important;
+  color: #222 !important;
+}
+.btnrepo .emoji, .btnrepo span.emoji {
+  font-size: 2em;
+  vertical-align: middle;
+  line-height: 1;
+}
+.btnre {
+  background: #E64A19 !important;
+  color: white !important;
+}
+.btnre:hover {
+  background-color: #f07b57 !important;
+  border: 3px solid #E64A19 !important;
+  color: black !important;
+}
+
+/* Impresión */
+@media print {
+  body { background: white; font-size: 13px; }
+  .a4-container { box-shadow: none; margin: 0; padding: 10mm; width: 210mm; height: 297mm; }
+  .print-btn, .no-print { display: none !important; }
+}

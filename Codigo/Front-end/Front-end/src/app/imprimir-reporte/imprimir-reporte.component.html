@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte por Paciente - Banco de Leche</title>
+  
+</head>
+<body>
+  <div class="a4-container">
+    <div class="content">
+      <!-- Header compacto -->
+      <div class="header-logos">
+        <img src="assets/patrocinador2.png" class="logoapp" alt="Logo Banco de Leche">
+        <img src="assets/patrocinador3.png" class="logoapp" alt="Patrocinador 3">
+        <img src="assets/patrocinador1.png" class="logoapp" alt="Patrocinador 1">
+        <img src="assets/patrocinador4.png" class="logoapp" alt="Patrocinador 4">
+        
+      </div>
+      <!-- Título -->
+      <h1 class="titulo-reporte">
+        Reporte por paciente: <span *ngIf="paciente">{{ paciente.apellidoPaternoPaciente }}, {{ paciente.apellidoMaternoPaciente }}, {{ paciente.nombrePaciente }}</span><br>
+        <span class="subtitulo">Realizado por el Banco de Leche</span>
+      </h1>
+      <!-- Contenido principal en dos columnas -->
+      <div class="main-content">
+        <!-- Columna izquierda -->
+        <div class="left-column">
+          <!-- Información del paciente -->
+          <section class="patient-section">
+            <div class="info-grid">
+              <div class="info-item"><label>N° Historia:</label><span class="value">{{ paciente?.idPaciente }}</span></div>
+              <div class="info-item"><label>Nombre:</label><span class="value">{{ paciente?.nombrePaciente }}</span></div>
+              <div class="info-item"><label>F. Nacimiento:</label><span class="value">{{ paciente?.fechaNacimientoPaciente | date:'dd/MM/yyyy' }}</span></div>
+              <div class="info-item"><label>Género:</label><span class="value">{{ paciente?.generoPaciente }}</span></div>
+              <div class="info-item"><label>Área:</label><span class="value">{{ paciente?.area }}</span></div>
+              <div class="info-item"><label>Cuna:</label><span class="value">{{ paciente?.cuna?.idCuna }}</span></div>
+              <div class="info-item"><label>Estado:</label><span class="value">{{ paciente?.estado }}</span></div>
+              <div class="info-item"><label>F. Ingreso:</label><span class="value">{{ paciente?.fechaIngreso | date:'dd/MM/yyyy' }}</span></div>
+              <div class="info-item"><label>F. Salida:</label><span class="value">{{ paciente?.fechaSalida | date:'dd/MM/yyyy' }}</span></div>
+              <div class="info-item"><label>DNI Madre:</label><span class="value">{{ paciente?.dniMadre }}</span></div>
+              <div class="info-item"><label>Teléfono:</label><span class="value">{{ paciente?.telefonoPaciente }}</span></div>
+              <div class="info-item"><label>N° Prefactura:</label><span class="value">{{ paciente?.numeroPreFactura }}</span></div>
+              <div class="info-item"><label>Peso Nac.:</label><span class="value">{{ paciente?.pesoNacimientoPaciente }} gr</span></div>
+              <div class="info-item"><label>E. Gestacional:</label><span class="value">{{ paciente?.edadGestacionalPaciente }} sem</span></div>
+              <div class="info-item"><label>Peso Salida:</label><span class="value">{{ paciente?.pesoSalidaPaciente }} gr</span></div>
+              <div class="info-item"><label>Talla Nac.:</label><span class="value">{{ paciente?.tallaNacimientoPaciente }} cm</span></div>
+              <div class="info-item"><label>Talla Salida:</label><span class="value">{{ paciente?.tallaSalidaPaciente }} cm</span></div>
+              <div class="info-item"><label>P. Cefálico:</label><span class="value">{{ paciente?.perimetroCefalico }} cm</span></div>
+              <div class="info-item"><label>P. Cefálico Salida:</label><span class="value">{{ paciente?.perimetroCefalicoSalida }} cm</span></div>
+            </div>
+          </section>
+          <!-- Diagnóstico -->
+          <section class="diagnostico-section">
+            <h3 class="section-title">Diagnóstico</h3>
+            <div class="info-row">
+              <label>Observación:</label>
+              <span class="value">{{ paciente?.diagnosticoPaciente?.observacionEnfermedad || 'No registrado' }}</span>
+            </div>
+          </section>
+          <!-- Enfermedades -->
+          <section class="enfermedades-section">
+            <h3 class="section-title">Enfermedades</h3>
+            <ul class="enfermedades-list">
+              <li *ngFor="let enf of enfermedades">
+                <span class="enfermedad-nombre">{{ enf.nombreEnfermedad }}</span>
+                <span class="enfermedad-categoria">({{ enf.categoriaEnfermedad }})</span>
+              </li>
+              <li *ngIf="enfermedades.length === 0">
+                <span class="enfermedad-nombre">Sin enfermedades registradas</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <!-- Columna derecha -->
+        <div class="right-column">
+          <!-- Gráfico -->
+          <section class="grafico-section">
+            <h2 class="section-title">Distribución de Leche</h2>
+            <div class="grafico-container">
+              <canvas baseChart
+                [data]="pieChartData"
+                [type]="pieChartType"
+                [options]="pieChartOptions"
+                [legend]="pieChartLegend">
+              </canvas>
+            </div>
+          </section>
+          <!-- Porcentajes de leche -->
+          <section class="enfermedades-section">
+            <h2 class="section-title">Porcentaje de cada tipo de leche</h2>
+            <ul class="enfermedades-list">
+              <li *ngFor="let p of porcentajesLeche">
+                <b>{{ p.tipo }}:</b> {{p.cantidad}}ml - ({{ p.porcentaje }}%)
+              </li>
+            </ul>
+          </section>
+
+          <section class="codigo-leche-section">
+            <h3 class="codigo-leche-title">Leche Pasteurizada Dispensada</h3>
+            <ul class="codigo-leche-grid">
+              <li *ngFor="let codigo of codigosUnicos">
+                <span class="codigo-item">{{ codigo }}</span>
+              </li>
+              <li *ngIf="codigosUnicos.length === 0">
+                <span class="codigo-item">Sin registros</span>
+              </li>
+            </ul>
+          </section>
+
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="footer">
+        <button class="print-btn no-print" [routerLink]="['/reporte-por-paciente', paciente?.idPaciente]" style="margin-left: 12px;">
+          ← Regresar
+        </button>
+        
+        <button class="print-btn no-print" (click)="exportarPDF()">
+          🖨️ Imprimir
+        </button>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
